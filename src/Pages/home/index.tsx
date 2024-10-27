@@ -64,7 +64,7 @@ export default function HomePage() {
                                 alt="mainlogo"
                             />
                         </div>
-                        <div className="max-w-[768px] text-center">
+                        <div className="max-w-[768px] text-justify">
                             <h3 className="text-regular font-semibold">
                                 Center for Student Advising
                             </h3>
@@ -84,27 +84,18 @@ export default function HomePage() {
                         </div>
                     </div>
                     <div className="flex flex-col justify-center items-center gap-[2rem]">
-                        <div className="grid grid-cols-1 grid-rows-3 lg:grid-cols-3 lg:grid-rows-1 gap-[2rem]">
-                            <Card image="/programs/COMSCI.jpeg" title="Computer Science">
-                                The Bachelor of Science in Computer Science program trains
-                                students in planning, researching, and developing algorithms and
-                                software for Windows, web, and mobile platforms.
-                            </Card>
+                        <div className="grid grid-cols-1 grid-rows-1 lg:grid-cols-1 lg:grid-rows-1 gap-[2rem]">
 
                             <Card
                                 image="/programs/EMC.jpeg"
                                 title="Entertainment & Multimedia Computing"
+                                onClick={() => navigate("/servicescsa")}
                             >
                                 The Bachelor of Science in Entertainment and Multimedia
                                 Computing with a focus on Game Development equips students to
                                 design, develop, and manage digital games.
                             </Card>
 
-                            <Card image="/programs/IS.jpeg" title="Information Systems">
-                                The Bachelor of Science in Information Systems program prepares
-                                students to be IT professionals and experts in designing and
-                                implementing Information Systems for business processes.
-                            </Card>
                         </div>
                         <Button
                             className="!px-[6rem]"

@@ -19,7 +19,7 @@ export default function AboutUs() {
             className="h-[250px] w-auto"
             alt="mainlogo"
           />
-          <div className="max-w-[768px] text-center md:text-start">
+          <div className="max-w-[768px] text-justify md:text-start">
             <h3 className="text-regular font-semibold">
               Center for Student Advising
             </h3>
@@ -132,7 +132,7 @@ export default function AboutUs() {
                   <p>Excellence and Relevance</p>
                 </div>
               </div>
-              <div className="flex flex-col w-full h-full justify-start items-center gap-[1rem]">
+              <div className="flex flex-col w-full h-full justify-start items-center text-justify gap-[1rem]">
                 <h3 className="text-regular font-semibold">Mission</h3>
                 <p>
                   1. The institute shall provide a learning environment in order
