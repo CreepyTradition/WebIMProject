@@ -38,7 +38,7 @@ export default function AboutUs() {
           <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
             <img
               className="h-[345px] w-auto rounded-md"
-              src="vp for acad affairs.png"
+              src="vpforacadaffairs.png"
               alt="vpaa"
             />
             <div>

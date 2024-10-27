@@ -11,7 +11,7 @@ export default function Servicescsa() {
         <img
           loading="lazy"
           className="object-cover w-[1700px] h-[350px]"
-          src="red bg.png"
+          src="redbg.png"
           alt="redbg"
         />
       </div>
