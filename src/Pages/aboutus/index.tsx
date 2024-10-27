@@ -21,13 +21,13 @@ export default function AboutUs() {
           />
           <div className="max-w-[768px] text-center md:text-start">
             <h3 className="text-regular font-semibold">
-            Center for Student Advising
+              Center for Student Advising
             </h3>
             <p>
-            The Center for Student Advising (CSA) aims to provide
-                                an integrated advising experience for all students in Mapúa Malayan Colleges Mindanao.
-                                The center offers general academic and non-academic advising and promotes academic
-                                success programs to achieve academic success.
+              The Center for Student Advising (CSA) aims to provide
+              an integrated advising experience for all students in Mapúa Malayan Colleges Mindanao.
+              The center offers general academic and non-academic advising and promotes academic
+              success programs to achieve academic success.
             </p>
           </div>
         </div>
@@ -38,66 +38,81 @@ export default function AboutUs() {
           <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
             <img
               className="h-[345px] w-auto rounded-md"
-              src="dean.jpeg"
-              alt="dada"
+              src="vp for acad affairs.png"
+              alt="vpaa"
             />
             <div>
               <p className="text-regular">
-                Rhodessa <em>"Dada"</em> J. Cascaro
+                Engr. Alejandro <em>"Jun"</em> H. Ballado, Jr.
               </p>
-              <p className="text-blue uppercase font-medium">Dean</p>
+              <p className="text-blue uppercase font-medium">Vice President For Acdemic Affairs</p>
+            </div>
+            <div>
+              <p className="text-regular">
+                Liezel S. Lopez
+              </p>
+              <p className="text-blue uppercase font-medium">OSS Director</p>
             </div>
           </div>
-          <div className="grid grid-cols-3 gap-[1rem] md:gap-[1.5rem]">
+          <div className="grid grid-cols-6 gap-[1rem] md:gap-[1.5rem]">
             <div className="flex flex-col justify-center items-center text-center">
-              <p className="text-regular">Neil P. Magloyuan</p>
-              <p className="text-blue uppercase font-medium">CS Program Head</p>
+              <p className="text-regular">Irish Mae O. Aberilla</p>
+              <p className="text-blue uppercase font-medium">Sports and Athletics Coordinator</p>
             </div>
             <div className="flex flex-col justify-center items-center text-center">
-              <p className="text-regular">Genevieve A. Pilongo</p>
-              <p className="text-blue uppercase font-medium">IS Program Head</p>
+              <p className="text-regular">** For Hiring</p>
+              <p className="text-blue uppercase font-medium">CGC Coordinator</p>
             </div>
             <div className="flex flex-col justify-center items-center text-center">
-              <p className="text-regular">Rogelio O. Badiang Jr. </p>
+              <p className="text-regular">Charlymer Dingal</p>
               <p className="text-blue uppercase font-medium">
-                EMC Program Head
+                CSAD Coordinator
               </p>
             </div>
             <div className="flex flex-col justify-center items-center text-center">
-              <p className="text-regular">Cherry B. Lisondra</p>
-              <p className="text-blue uppercase font-medium">Faculty</p>
+              <p className="text-regular">For Hiring |2024</p>
+              <p className="text-blue uppercase font-medium">CSA and GAD Coordinator</p>
             </div>
             <div className="flex flex-col justify-center items-center text-center">
-              <p className="text-regular">Martzel Baste</p>
-              <p className="text-blue uppercase font-medium">Faculty</p>
+              <p className="text-regular">Ramon Quiñagon</p>
+              <p className="text-blue uppercase font-medium">CSFA Head</p>
             </div>
             <div className="flex flex-col justify-center items-center text-center">
-              <p className="text-regular">Christopher Josh Dellosa</p>
-              <p className="text-blue uppercase font-medium">Faculty</p>
+              <p className="text-regular">For Hiring|2024</p>
+              <p className="text-blue uppercase font-medium">Help Center</p>
             </div>
             <div className="flex flex-col justify-center items-center text-center">
-              <p className="text-regular">Clyde Chester R. Balaman</p>
-              <p className="text-blue uppercase font-medium">Faculty</p>
+              <p className="text-regular">*Wichester Lemen</p>
+              <p className="text-blue uppercase font-medium">Coach</p>
             </div>
             <div className="flex flex-col justify-center items-center text-center">
-              <p className="text-regular">Patrick D. Cerna</p>
-              <p className="text-blue uppercase font-medium">Faculty</p>
+              <p className="text-regular">Renzo James Sandoval
+                Justin Christian Bije
+                Bai Nysaa Mae Mondia</p>
+              <p className="text-blue uppercase font-medium">CGC Facilitator</p>
             </div>
             <div className="flex flex-col justify-center items-center text-center">
-              <p className="text-regular">Daisy Ann M. Arzaga</p>
-              <p className="text-blue uppercase font-medium">Faculty</p>
+              <p className="text-regular">Kyna Marie O. Heje</p>
+              <p className="text-blue uppercase font-medium">OSS Assistant</p>
             </div>
             <div className="flex flex-col justify-center items-center text-center">
-              <p className="text-regular">Christopher Rey A. Lungay</p>
-              <p className="text-blue uppercase font-medium">Faculty</p>
+              <p className="text-regular">Samantha Grace Espino
+                Kenneth R. Alquino
+                Nissi John F. Salende</p>
+              <p className="text-blue uppercase font-medium">CSA Facilitator</p>
             </div>
             <div className="flex flex-col justify-center items-center text-center">
-              <p className="text-regular">Mary Grace Sandoval</p>
-              <p className="text-blue uppercase font-medium">Faculty</p>
+              <p className="text-regular">** SA as needed</p>
+              <p className="text-blue uppercase font-medium">CSFA Assistant</p>
             </div>
             <div className="flex flex-col justify-center items-center text-center">
-              <p className="text-regular">Robie Bryan Jacaban</p>
-              <p className="text-blue uppercase font-medium">Technical Assistant</p>
+              <p className="text-regular">Eira Flores</p>
+              <p className="text-blue uppercase font-medium">OSS Assistant - Helpdesk</p>
+            </div>
+            <div className="flex flex-col justify-center items-center text-center">
+              <p className="text-regular">Chloe Jan Cuaton
+                Bianca Mae Peligrino</p>
+              <p className="text-blue uppercase font-medium">Psychometrician</p>
             </div>
           </div>
         </section>
