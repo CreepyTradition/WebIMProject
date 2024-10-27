@@ -1,29 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export default function Register() {
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        password: ""
-    });
 
     useEffect(() => {
         document.title = "Register - Mapúa Malayan Colleges Mindanao";
     }, []);
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value
-        });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("Form Submitted", formData);
-        // Add your form submission logic here
-    };
 
     return (
         <div>
@@ -46,14 +27,12 @@ export default function Register() {
                 <section className="flex-col gap-[4rem] h-full">
                     <div className="flex flex-col justify-center items-center gap-[2rem]">
                         <div className="flex justify-center items-center gap-[1rem] md:gap-[2rem]">
-                            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                            <form className="flex flex-col gap-4">
                                 <label>
                                     Name:
                                     <input
                                         type="text"
                                         name="name"
-                                        value={formData.name}
-                                        onChange={handleChange}
                                         className="border p-2"
                                         required
                                     />
@@ -63,8 +42,7 @@ export default function Register() {
                                     <input
                                         type="email"
                                         name="email"
-                                        value={formData.email}
-                                        onChange={handleChange}
+
                                         className="border p-2"
                                         required
                                     />
@@ -74,8 +52,8 @@ export default function Register() {
                                     <input
                                         type="password"
                                         name="password"
-                                        value={formData.password}
-                                        onChange={handleChange}
+
+
                                         className="border p-2"
                                         required
                                     />
