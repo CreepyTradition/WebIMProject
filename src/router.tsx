@@ -6,6 +6,10 @@ import HomePage from "./Pages/home";
 import ContactUs from "./Pages/contactus";
 import AboutUs from "./Pages/aboutus";
 import Servicescsa from "./Pages/servicescsa";
+import RegisterPage from "./Pages/register";
+import RegisterLayout from "./Layouts/Register/RegisterLayout";
+import LoginLayout from "./Layouts/Login/LoginLayout";
+import LoginPage from "./Pages/login";
 
 const Router = createBrowserRouter([
     {
@@ -39,6 +43,26 @@ const Router = createBrowserRouter([
             {
                 index: true,
                 element: <FacultyPage />
+            },
+        ],
+    },
+    {
+        path: "register",
+        element: <RegisterLayout />,
+        children: [
+            {
+                index: true,
+                element: <RegisterPage />
+            },
+        ],
+    },
+    {
+        path: "login",
+        element: <LoginLayout />,
+        children: [
+            {
+                index: true,
+                element: <LoginPage />
             },
         ],
     },

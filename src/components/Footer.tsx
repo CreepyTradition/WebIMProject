@@ -4,7 +4,7 @@ export default function Footer() {
         <div className="flex flex-col justify-center items-center bg-[#737373] w-full h-auto">
           <div className="flex justify-between items-center w-full max-w-[1080px] mx-auto p-[1rem] h-[260px]">
             <div className="flex flex-col gap-[1rem] select-text">
-              <p className="text-[0.8rem]">Office No: +63 917 583 9615<br/>Room 511, MMCM Acad Bldg.</p>
+              <p className="text-[0.8rem]">Email: studentservices@mcm.edu.ph<br/>OSS, MMCM Admin Bldg.</p>
               <div className="bg-[#fff] h-[1px]" />
               <p className="text-[0.8rem]">
                 Gen. Douglas MacArthur Hwy <br /> Matina, Davao City 8000 <br />

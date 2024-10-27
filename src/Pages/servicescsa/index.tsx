@@ -16,12 +16,11 @@ export default function Servicescsa() {
         />
       </div>
       <div className="w-full flex flex-col justify-center items-center h-full text-justify gap-[1.5rem]">
-        <div className="flex flex-col pt-[2rem] text-regular">
-          <h1>
-            <br></br><br></br><span className="text-border">Services</span>
+        <div className="flex flex-col py-[5rem] text-regular">
+          <h1 className="text-border">
+           Services
           </h1>
         </div>
-        <div></div><div></div><div></div><div></div><div></div><div></div>
       </div>
       <div className="bg-[#fff] border-t-2 border-[#e7e7e7] h-full sticky top-0">
         <section className="flex-col gap-[4rem] h-full">

@@ -34,14 +34,11 @@ export default function HomePage() {
                     </div>
                     <div className="flex gap-[1rem]">
                         <a
-                            href="https://mcm-edu.my.salesforce-sites.com/applynow"
-                            target="_blank"
-                            rel="noopener"
-                            title="apply"
+                            onClick={() => navigate("/register")}
                         >
                             <Button type="red">Register</Button>
                         </a>
-                        <Button type="blue" onClick={() => navigate("/faculty")}>
+                        <Button type="blue" onClick={() => navigate("/login")}>
                             Login
                         </Button>
                     </div>
