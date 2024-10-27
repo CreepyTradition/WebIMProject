@@ -26,7 +26,17 @@ export default function ContactUs() {
         <section className="flex-col gap-[4rem] h-full">
           <div className="flex flex-col justify-center items-center gap-[2rem]">
             <div className="flex justify-center items-center gap-[1rem] md:gap-[2rem]">
-              
+              <div className="grid grid-cols-1 grid-rows-1 lg:grid-cols-1 lg:grid-rows-1 gap-[2rem]">
+
+              <h1>
+              Email:
+              </h1>
+              <h3>studentservices@mcm.edu.ph</h3>
+              <h1>
+              Facebook:
+              </h1>
+              <h3>https://www.facebook.com/mmcmstudentservices</h3>
+              </div>
             </div>
 
           </div>
