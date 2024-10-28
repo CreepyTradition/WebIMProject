@@ -27,7 +27,7 @@ export default function ContactUs() {
         <section className="flex-col gap-[4rem] h-full">
           <div className="flex flex-col justify-center items-center gap-[2rem]">
             <div className="flex justify-center items-center gap-[1rem] md:gap-[2rem]">
-              <div className="grid grid-cols-1 grid-rows-1 lg:grid-cols-1 lg:grid-rows-1 gap-[2rem]">
+              <div className="grid grid-cols-4 grid-rows-1 lg:grid-cols-4 lg:grid-rows-1 gap-[2rem]">
 
                 <h3 className="text-blue">
                   Email:
