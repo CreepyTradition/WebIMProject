@@ -158,7 +158,7 @@ export default function AboutUs() {
               <div className="flex flex-col justify-between items-center h-full gap-[2rem]">
                 <div className="flex flex-col w-full h-full justify-start items-center gap-[1rem]">
                   <h3 className="text-regular font-semibold">Vision</h3>
-                  <p>
+                  <p className="text-center">
                     Mapúa Malayan Colleges Mindanao stands among the world's leading educational
                     institutions.
                   </p>
