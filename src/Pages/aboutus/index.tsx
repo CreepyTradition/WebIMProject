@@ -1,12 +1,23 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Card from "../../components/ui/cards";
 
-
 export default function AboutUs() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalImageSrc, setModalImageSrc] = useState("");
 
   useEffect(() => {
     document.title = "About - Mapúa Malayan Colleges Mindanao";
   }, []);
+
+  const handleImageClick = (src) => {
+    setModalImageSrc(src);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="relative">
       <img
@@ -27,10 +38,10 @@ export default function AboutUs() {
               Center for Student Advising
             </h3>
             <p>
-              The Center for Student Advising (CSA) aims to provide
-              an integrated advising experience for all students in Mapúa Malayan Colleges Mindanao.
-              The center offers general academic and non-academic advising and promotes academic
-              success programs to achieve academic success.
+              The Center for Student Advising (CSA) aims to provide an integrated
+              advising experience for all students in Mapúa Malayan Colleges Mindanao.
+              The center offers general academic and non-academic advising and promotes
+              academic success programs to achieve academic success.
             </p>
           </div>
         </div>
@@ -40,20 +51,19 @@ export default function AboutUs() {
           <h2 className="text-regular font-semibold">Meet the Team</h2>
           <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
             <img
-              className="h-[345px] w-auto rounded-md"
+              className="h-[345px] w-auto rounded-md cursor-pointer"
               src="vpforacadaffairs.png"
               alt="vpaa"
+              onClick={() => handleImageClick("vpforacadaffairs.png")}
             />
             <div>
               <p className="text-regular">
                 Engr. Alejandro <em>"Jun"</em> H. Ballado, Jr.
               </p>
-              <p className="text-blue uppercase font-medium">Vice President For Acdemic Affairs</p>
+              <p className="text-blue uppercase font-medium">Vice President For Academic Affairs</p>
             </div>
             <div>
-              <p className="text-regular">
-                Liezel S. Lopez
-              </p>
+              <p className="text-regular">Liezel S. Lopez</p>
               <p className="text-blue uppercase font-medium">OSS Director</p>
             </div>
           </div>
@@ -68,9 +78,7 @@ export default function AboutUs() {
             </div>
             <div className="flex flex-col justify-center items-center text-center">
               <p className="text-regular">Charlymer Dingal</p>
-              <p className="text-blue uppercase font-medium">
-                CSAD Coordinator
-              </p>
+              <p className="text-blue uppercase font-medium">CSAD Coordinator</p>
             </div>
             <div className="flex flex-col justify-center items-center text-center">
               <p className="text-regular">For Hiring |2024</p>
@@ -85,20 +93,26 @@ export default function AboutUs() {
               <p className="text-blue uppercase font-medium">Help Center</p>
             </div>
             <div className="flex flex-col justify-center items-center text-center">
-              <p className="text-regular">Samantha Grace Espino<br></br>
-                Kenneth R. Alquino<br></br>
-                Nissi John F. Salende</p>
+              <p className="text-regular">
+                Samantha Grace Espino<br />
+                Kenneth R. Alquino<br />
+                Nissi John F. Salende
+              </p>
               <p className="text-blue uppercase font-medium">CSA Facilitators</p>
             </div>
             <div className="flex flex-col justify-center items-center text-center">
-              <p className="text-regular">Renzo James Sandoval<br></br>
-                Justin Christian Bije<br></br>
-                Bai Nysaa Mae Mondia</p>
+              <p className="text-regular">
+                Renzo James Sandoval<br />
+                Justin Christian Bije<br />
+                Bai Nysaa Mae Mondia
+              </p>
               <p className="text-blue uppercase font-medium">CGC Facilitators</p>
             </div>
             <div className="flex flex-col justify-center items-center text-center">
-              <p className="text-regular">Chloe Jan Cuaton<br></br>
-                Bianca Mae Peligrino</p>
+              <p className="text-regular">
+                Chloe Jan Cuaton<br />
+                Bianca Mae Peligrino
+              </p>
               <p className="text-blue uppercase font-medium">Psychometricians</p>
             </div>
             <div className="flex flex-col justify-center items-center text-center">
@@ -121,30 +135,22 @@ export default function AboutUs() {
             </div>
           </div>
         </section>
-        {/* <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
-          <img
-            className="h-[500px] w-auto rounded-md"
-            src="462558439_405217282656092_1570684887792283146_n.png"
-            alt="orgchart"
-          />
-        </div> */}
         <div className="flex flex-col justify-center items-center gap-[2rem]">
           <div className="grid grid-cols-1 grid-rows-1 lg:grid-cols-1 lg:grid-rows-1 gap-[2rem]">
-
             <Card
               image="462558439_405217282656092_1570684887792283146_n.png"
-              title="Academic Exellence & Support"
+              title="Academic Excellence & Support"
             >
               The OSS Organizational Chart
             </Card>
-
           </div>
         </div>
         <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
           <img
-            className="h-[500px] w-auto rounded-md"
+            className="h-[500px] w-auto rounded-md cursor-pointer"
             src="462541086_549926151019250_6570040595572882274_n.jpg"
-            alt="orgchart"
+            alt="floorplan"
+            onClick={() => handleImageClick("462541086_549926151019250_6570040595572882274_n.jpg")}
           />
         </div>
         <div className="bg-[#f9f9f9]">
@@ -154,8 +160,8 @@ export default function AboutUs() {
                 <div className="flex flex-col w-full h-full justify-start items-center gap-[1rem]">
                   <h3 className="text-regular font-semibold">Vision</h3>
                   <p>
-                    Mapúa Malayan Colleges Mindanao stands among the world's
-                    leading educational institutions.
+                    Mapúa Malayan Colleges Mindanao stands among the world's leading educational
+                    institutions.
                   </p>
                 </div>
                 <div className="flex flex-col w-full h-full justify-start items-center gap-[1rem]">
@@ -166,22 +172,37 @@ export default function AboutUs() {
               <div className="flex flex-col w-full h-full justify-start items-center text-justify gap-[1rem]">
                 <h3 className="text-regular font-semibold">Mission</h3>
                 <p>
-                  1. The institute shall provide a learning environment in order
-                  for its students to acquire the attributes that will make them
-                  globally competitive & locally in-demand. <br />
+                  1. The institute shall provide a learning environment in order for its students to acquire
+                  the attributes that will make them globally competitive & locally in-demand. <br />
                   <br />
-                  2. The institute shall engage in cutting edge and economically
-                  viable research, development and innovation that is relevant
-                  locally and beyond. <br />
+                  2. The institute shall engage in cutting edge and economically viable research, development
+                  and innovation that is relevant locally and beyond. <br />
                   <br />
-                  3. The institute shall provide state-of-the-art solutions to
-                  problems of industries and communities locally and beyond.
+                  3. The institute shall provide state-of-the-art solutions to problems of industries and
+                  communities locally and beyond.
                 </p>
               </div>
             </div>
           </section>
         </div>
       </div>
+      {isModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50">
+          <div className="relative">
+            <button
+              onClick={closeModal}
+              className="absolute top-2 right-2 p-2 text-white text-3xl font-bold cursor-pointer"
+            >
+              &times;
+            </button>
+            <img
+              className="h-auto max-h-[90vh] w-auto max-w-[90vw] rounded-md"
+              src={modalImageSrc}
+              alt="Magnified view"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
