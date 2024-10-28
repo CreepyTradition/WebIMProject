@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Card from "../../components/ui/cards";
 
 export default function AboutUs() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -136,14 +135,14 @@ export default function AboutUs() {
           </div>
         </section>
         <div className="flex flex-col justify-center items-center gap-[2rem]">
-          <div className="grid grid-cols-1 grid-rows-1 lg:grid-cols-1 lg:grid-rows-1 gap-[2rem]">
-            <Card
-              image="462558439_405217282656092_1570684887792283146_n.png"
-              title="Academic Excellence & Support"
-            >
-              The OSS Organizational Chart
-            </Card>
-          </div>
+          <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
+          <img
+            className="h-[500px] w-auto rounded-md cursor-pointer"
+            src="462558439_405217282656092_1570684887792283146_n.png"
+            alt="orgchart"
+            onClick={() => handleImageClick("462558439_405217282656092_1570684887792283146_n.png")}
+          />
+        </div>
         </div>
         <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
           <img
