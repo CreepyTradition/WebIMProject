@@ -32,7 +32,7 @@ export default function HomePage() {
                             />
                         </h3>
                         <h1>
-                            Center <span className="text-red">For</span> <br />
+                            Center <span className="text-red">for</span> <br />
                             <span className="text-blue"> Student</span> Advising
                         </h1>
                     </div>
