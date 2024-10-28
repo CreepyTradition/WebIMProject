@@ -20,11 +20,11 @@ export default function AboutUs() {
   return (
     <div className="relative">
       <img
-        className="opacity-20 w-auto h-1/2 absolute top-0 object-cover"
+        className="-z-10 opacity-20 w-auto h-1/2 absolute top-0 object-cover"
         src="aboutbanner.png"
         alt="aboutbanner"
       />
-      <section className="flex-col gap-[5rem] h-auto sticky top-0">
+      <section className="flex-col gap-[5rem] h-auto">
         <div className="flex flex-col md:flex-row justify-center items-center gap-[2rem]">
           <img
             loading="lazy"
@@ -136,13 +136,13 @@ export default function AboutUs() {
         </section> */}
         <div className="flex flex-col justify-center items-center gap-[2rem]">
           <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
-          <img
-            className="h-[500px] w-auto rounded-md cursor-pointer"
-            src="462558439_405217282656092_1570684887792283146_n.png"
-            alt="orgchart"
-            onClick={() => handleImageClick("462558439_405217282656092_1570684887792283146_n.png")}
-          />
-        </div>
+            <img
+              className="h-[500px] w-auto rounded-md cursor-pointer"
+              src="462558439_405217282656092_1570684887792283146_n.png"
+              alt="orgchart"
+              onClick={() => handleImageClick("462558439_405217282656092_1570684887792283146_n.png")}
+            />
+          </div>
         </div>
         {/* <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
           <img
@@ -195,7 +195,7 @@ export default function AboutUs() {
               &times;
             </button>
             <img
-              className="h-auto max-h-[90vh] w-auto max-w-[90vw] rounded-md"
+              className="h-auto max-h-[90vh] w-auto max-w-[90vw] rounded-md border-4 border-blue"
               src={modalImageSrc}
               alt="Magnified view"
             />

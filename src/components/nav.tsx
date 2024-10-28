@@ -6,7 +6,7 @@ export default function nav() {
         <nav className="sticky top-0 bg-[#ffffffed] select-none z-50 shadow-md">
             <div className="flex flex-col md:flex-row gap-[1rem] justify-between items-center max-w-[1280px] mx-auto p-[1rem]">
                 <img
-                    src="banner.png"
+                    src="cardReplace.png"
                     loading="lazy"
                     alt="logo"
                     className="w-auto h-[70px] transition-all cursor-pointer ease-linear hover:scale-105"

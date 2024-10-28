@@ -1,10 +1,22 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Servicescsa() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalImageSrc, setModalImageSrc] = useState("");
 
   useEffect(() => {
     document.title = "Services - Mapúa Malayan Colleges Mindanao";
   }, []);
+
+  const handleImageClick = (src: string) => {
+    setModalImageSrc(src);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div>
       <div className="h-screen w-screen fixed -z-10 opacity-85">
@@ -50,15 +62,35 @@ export default function Servicescsa() {
                 create student success.</p>
             </div>
           </div>
-          <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
-          <img
-            className="h-[345px] w-auto rounded-md"
-            src="462540898_1485017992890231_545990648056432205_n.png"
-            alt="services"
-          />
-        </div>
+          <div className="flex flex-col justify-center items-center gap-[2rem]">
+            <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
+              <img
+                className="h-[500px] w-auto rounded-md cursor-pointer"
+                src="462540898_1485017992890231_545990648056432205_n.png"
+                alt="services"
+                onClick={() => handleImageClick("462540898_1485017992890231_545990648056432205_n.png")}
+              />
+            </div>
+          </div>
         </section>
       </div>
+      {isModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50">
+          <div className="relative">
+            <button
+              onClick={closeModal}
+              className="absolute top-2 right-2 p-2 text-white text-3xl font-bold cursor-pointer"
+            >
+              &times;
+            </button>
+            <img
+              className="h-auto max-h-[90vh] w-auto max-w-[90vw] rounded-md border-4 border-blue"
+              src={modalImageSrc}
+              alt="Magnified view"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

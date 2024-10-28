@@ -21,7 +21,7 @@ export default function HomePage() {
                     alt="bg"
                 />
             </div>
-            <section className="sticky top-0">
+            <section>
                 <div className="w-full flex flex-col justify-center items-start h-full gap-[1.5rem]">
                     <div className="flex flex-col pt-[2rem] text-regular">
                         <h3 className="font-normal">
@@ -88,8 +88,8 @@ export default function HomePage() {
                                 title="Academic Exellence & Support"
                                 onClick={() => navigate("/servicescsa")}
                             >
-                                Providing integrated advising, academic support, 
-                                and student success programs to empower students 
+                                Providing integrated advising, academic support,
+                                and student success programs to empower students
                                 at Malayan Colleges Mindanao.
                             </Card>
 
