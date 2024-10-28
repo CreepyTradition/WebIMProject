@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Card from "../../components/ui/cards";
 
 export default function ContactUs() {
 
@@ -19,7 +20,7 @@ export default function ContactUs() {
       <div className="w-full flex flex-col justify-center items-center h-full text-justify gap-[1.5rem]">
         <div className="flex flex-col py-[5rem] text-regular">
           <h1 className="text-border">
-            Contact Us
+            If you have any questions:
           </h1>
         </div>
       </div>
@@ -27,32 +28,10 @@ export default function ContactUs() {
         <section className="flex-col gap-[4rem] h-full">
           <div className="flex flex-col justify-center items-center gap-[2rem]">
             <div className="flex justify-center items-center gap-[1rem] md:gap-[2rem]">
-              <div className="grid grid-cols-4 grid-rows-1 lg:grid-cols-4 lg:grid-rows-1 gap-[2rem]">
-
-                <h3 className="text-blue">
-                  Email:
-                </h3>
-                <a
-                  href="mailto:csa@mcm.edu.ph"
-                  rel="noopener"
-                  target="_blank"
-                  title="csa"
-                  className="hover:scale-110 transition-all ease-linear"
-                >
-                  <img className="h-[110px]" src="email.png" alt="fbpic" />
-                </a>
-                <h3 className="text-blue">
-                  Facebook:
-                </h3>
-                <a
-                  href="https://www.facebook.com/profile.php?id=100070921430794"
-                  rel="noopener"
-                  target="_blank"
-                  title="csa"
-                  className="hover:scale-110 transition-all ease-linear"
-                >
-                  <img className="h-[100px]" src="FacebookOutline.webp" alt="fbpic" />
-                </a>
+              <div className="grid grid-cols-2 grid-rows-1 lg:grid-cols-2 lg:grid-rows-1 gap-[2rem]">
+                <Card title="Email" image="email.png" href="mailto:csa@mcm.edu.ph">csa@mcm.edu.ph</Card>
+                <Card title="Facebook" image="FacebookOutline.webp" href="https://www.facebook.com/profile.php?id=100070921430794">
+                  MCM Center for Student Advising</Card>
               </div>
             </div>
           </div>

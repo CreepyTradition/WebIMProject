@@ -37,6 +37,12 @@ export default function nav() {
                     >
                         Contact
                     </p>
+                    <p
+                        onClick={() => navigate("login")}
+                        className="cursor-pointer p-[0.5rem] transition-colors ease-linear hover:text-red hover:border-b-[1px] hover:border-red"
+                    >
+                        Login
+                    </p>
                 </div>
             </div>
         </nav>

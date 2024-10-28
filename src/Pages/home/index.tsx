@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/ui/button";
-import Card from "../../components/ui/cards";
 import { useEffect } from "react";
 
 export default function HomePage() {
@@ -21,11 +20,16 @@ export default function HomePage() {
                     alt="bg"
                 />
             </div>
-            <section>
-                <div className="w-full flex flex-col justify-center items-start h-full gap-[1.5rem]">
-                    <div className="flex flex-col pt-[2rem] text-regular">
+            <section className="w-full h-screen flex justify-center items-center">
+                <div className="w-full flex flex-col justify-center items-center h-full gap-[1.5rem]">
+                    <div className="flex flex-col pt-[2rem] text-regular text-center">
                         <h3 className="font-normal">
-                            <em>Mapúa MCM CSA</em>
+                            <img
+                                loading="lazy"
+                                src="banner.png"
+                                className="h-[120px] w-auto mx-auto"
+                                alt="mapualogo"
+                            />
                         </h3>
                         <h1>
                             Center <span className="text-red">For</span> <br />
@@ -33,9 +37,7 @@ export default function HomePage() {
                         </h1>
                     </div>
                     <div className="flex gap-[1rem]">
-                        <a
-                            onClick={() => navigate("/register")}
-                        >
+                        <a onClick={() => navigate("/register")}>
                             <Button type="red">Register</Button>
                         </a>
                         <Button type="blue" onClick={() => navigate("/login")}>
@@ -57,15 +59,15 @@ export default function HomePage() {
                             <img
                                 loading="lazy"
                                 src="logo1.png"
-                                className="h-[250px] w-auto"
+                                className="h-[200px] w-auto"
                                 alt="mainlogo"
                             />
                         </div>
-                        <div className="max-w-[768px] text-justify">
-                            <h3 className="text-regular font-semibold">
+                        <div className="flex flex-col max-w-[768px] justify-center">
+                            <h3 className="text-regular font-semibold text-center">
                                 Center for Student Advising
                             </h3>
-                            <p>
+                            <p className="text-justify">
                                 The Center for Student Advising (CSA) aims to provide
                                 an integrated advising experience for all students in Mapúa Malayan Colleges Mindanao.
                                 The center offers general academic and non-academic advising and promotes academic
@@ -81,26 +83,27 @@ export default function HomePage() {
                         </div>
                     </div>
                     <div className="flex flex-col justify-center items-center gap-[2rem]">
-                        <div className="grid grid-cols-1 grid-rows-1 lg:grid-cols-1 lg:grid-rows-1 gap-[2rem]">
-
-                            <Card
-                                image="/462640253_1369432297182896_2726681043396341596_n.jpg"
-                                title="Academic Exellence & Support"
-                                onClick={() => navigate("/servicescsa")}
-                            >
-                                Providing integrated advising, academic support,
-                                and student success programs to empower students
-                                at Malayan Colleges Mindanao.
-                            </Card>
-
+                        <div className="flex justify-center items-center gap-[2rem]">
+                            <img
+                                loading="lazy"
+                                src="462640253_1369432297182896_2726681043396341596_n.jpg"
+                                className="h-[200px] w-auto"
+                                alt="oss"
+                            />
+                            <div className="flex flex-col justify-center items-start text-left">
+                                <h3>Academic Exellence & Support</h3>
+                                <p>Providing integrated advising, academic support,
+                                    and student success<br /> programs to empower students
+                                    at Malayan Colleges Mindanao.</p>
+                                <Button
+                                    className="!px-[6rem] mt-4"
+                                    type="regular"
+                                    onClick={() => navigate("/servicescsa")}
+                                >
+                                    Learn more
+                                </Button>
+                            </div>
                         </div>
-                        <Button
-                            className="!px-[6rem]"
-                            type="regular"
-                            onClick={() => navigate("/servicescsa")}
-                        >
-                            Learn more
-                        </Button>
                     </div>
                 </section>
             </div>

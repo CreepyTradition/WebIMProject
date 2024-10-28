@@ -20,7 +20,7 @@ export default function AboutUs() {
   return (
     <div className="relative">
       <img
-        className="-z-10 opacity-20 w-auto h-1/2 absolute top-0 object-cover"
+        className="-z-10 opacity-20 w-full h-screen fixed top-0 object-cover"
         src="aboutbanner.png"
         alt="aboutbanner"
       />
@@ -29,7 +29,7 @@ export default function AboutUs() {
           <img
             loading="lazy"
             src="logo1.png"
-            className="h-[250px] w-auto"
+            className="h-[200px] w-auto"
             alt="mainlogo"
           />
           <div className="max-w-[768px] text-justify md:text-start">

@@ -41,7 +41,7 @@ export default function Servicescsa() {
               <img
                 loading="lazy"
                 src="logo.png"
-                className="h-[250px] w-auto"
+                className="h-[200px] w-auto"
                 alt="mainlogo"
               />
             </div>

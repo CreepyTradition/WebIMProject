@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
         <footer className="text-[#fff]">
-        <div className="flex flex-col justify-center items-center bg-[#737373] w-full h-auto">
+        <div className="flex flex-col justify-center items-center bg-regular w-full h-auto">
           <div className="flex justify-between items-center w-full max-w-[1080px] mx-auto p-[1rem] h-[260px]">
             <div className="flex flex-col gap-[1rem] select-text">
               <p className="text-[0.8rem]">Email: studentservices@mcm.edu.ph<br/>OSS, MMCM Admin Bldg.</p>
