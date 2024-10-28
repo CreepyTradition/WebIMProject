@@ -86,20 +86,20 @@ export default function AboutUs() {
               <p className="text-blue uppercase font-medium">Coach</p>
             </div>
             <div className="flex flex-col justify-center items-center text-center">
-              <p className="text-regular">Renzo James Sandoval
-                Justin Christian Bije
+              <p className="text-regular">Renzo James Sandoval<br></br>
+                Justin Christian Bije<br></br>
                 Bai Nysaa Mae Mondia</p>
-              <p className="text-blue uppercase font-medium">CGC Facilitator</p>
+              <p className="text-blue uppercase font-medium">CGC Facilitators</p>
             </div>
             <div className="flex flex-col justify-center items-center text-center">
               <p className="text-regular">Kyna Marie O. Heje</p>
               <p className="text-blue uppercase font-medium">OSS Assistant</p>
             </div>
             <div className="flex flex-col justify-center items-center text-center">
-              <p className="text-regular">Samantha Grace Espino
-                Kenneth R. Alquino
+              <p className="text-regular">Samantha Grace Espino<br></br>
+                Kenneth R. Alquino<br></br>
                 Nissi John F. Salende</p>
-              <p className="text-blue uppercase font-medium">CSA Facilitator</p>
+              <p className="text-blue uppercase font-medium">CSA Facilitators</p>
             </div>
             <div className="flex flex-col justify-center items-center text-center">
               <p className="text-regular">** SA as needed</p>

@@ -43,7 +43,7 @@ export default function ContactUs() {
                   title="csa"
                   className="hover:scale-110 transition-all ease-linear"
                 >
-                  <img className="h-[150px]" src="cardReplace.png" alt="fbpic" />
+                  <img className="h-[100px]" src="cardReplace.png" alt="fbpic" />
                 </a>
               </div>
             </div>
