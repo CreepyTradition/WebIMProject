@@ -48,12 +48,12 @@ export default function HomePage() {
                 <section className="flex-col gap-[4rem] h-full">
                     <div className="flex flex-col justify-center items-center gap-[2rem]">
                         <div className="flex justify-center items-center gap-[1rem] md:gap-[2rem]">
-                            <img
+                            {/* <img
                                 loading="lazy"
                                 src="MMCMmain.png"
                                 className="h-[160px] w-auto"
                                 alt="mainlogo"
-                            />
+                            /> */}
                             <img
                                 loading="lazy"
                                 src="logo.png"

@@ -54,7 +54,7 @@ export default function AboutUs() {
               <p className="text-blue uppercase font-medium">OSS Director</p>
             </div>
           </div>
-          <div className="grid grid-cols-6 gap-[1rem] md:gap-[1.5rem]">
+          <div className="grid grid-cols-3 gap-[1rem] md:gap-[1.5rem]">
             <div className="flex flex-col justify-center items-center text-center">
               <p className="text-regular">Irish Mae O. Aberilla</p>
               <p className="text-blue uppercase font-medium">Sports and Athletics Coordinator</p>
