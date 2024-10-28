@@ -28,7 +28,7 @@ export default function AboutUs() {
         <div className="flex flex-col md:flex-row justify-center items-center gap-[2rem]">
           <img
             loading="lazy"
-            src="logo.png"
+            src="logo1.png"
             className="h-[250px] w-auto"
             alt="mainlogo"
           />
@@ -46,7 +46,7 @@ export default function AboutUs() {
         </div>
       </section>
       <div className="sticky top-0 bg-[#fff]">
-        <section className="h-auto justify-center flex-col gap-[1.5rem]">
+        {/* <section className="h-auto justify-center flex-col gap-[1.5rem]">
           <h2 className="text-regular font-semibold">Meet the Team</h2>
           <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
             <img
@@ -133,7 +133,7 @@ export default function AboutUs() {
               <p className="text-blue uppercase font-medium">CSFA Assistant</p>
             </div>
           </div>
-        </section>
+        </section> */}
         <div className="flex flex-col justify-center items-center gap-[2rem]">
           <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
           <img
@@ -144,14 +144,14 @@ export default function AboutUs() {
           />
         </div>
         </div>
-        <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
+        {/* <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
           <img
             className="h-[500px] w-auto rounded-md cursor-pointer"
             src="462541086_549926151019250_6570040595572882274_n.jpg"
             alt="floorplan"
             onClick={() => handleImageClick("462541086_549926151019250_6570040595572882274_n.jpg")}
           />
-        </div>
+        </div> */}
         <div className="bg-[#f9f9f9]">
           <section className="h-auto">
             <div className="grid grid-cols-1 md:grid-rows-1 md:grid-cols-2 items-start justify-center gap-[2rem] max-w-[968px]">

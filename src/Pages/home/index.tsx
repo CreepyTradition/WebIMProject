@@ -56,7 +56,7 @@ export default function HomePage() {
                             /> */}
                             <img
                                 loading="lazy"
-                                src="logo.png"
+                                src="logo1.png"
                                 className="h-[250px] w-auto"
                                 alt="mainlogo"
                             />
