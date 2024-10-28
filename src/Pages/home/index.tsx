@@ -83,7 +83,7 @@ export default function HomePage() {
                         </div>
                     </div>
                     <div className="flex flex-col justify-center items-center gap-[2rem]">
-                        <div className="flex justify-center items-center gap-[2rem]">
+                        <div className="flex flex-col md:flex-row justify-center items-center gap-[2rem]">
                             <img
                                 loading="lazy"
                                 src="462640253_1369432297182896_2726681043396341596_n.jpg"

@@ -21,7 +21,7 @@ export default function Register() {
                 />
             </div>
             <div className="w-full flex flex-col justify-center items-center h-full text-justify gap-[1.5rem]">
-                <div className="flex flex-col py-[5rem] text-regular">
+                <div className="flex flex-col py-[5rem] text-regular text-center">
                     <h1 className="text-border">
                         Register(WORK IN PROGRESS)
                     </h1>

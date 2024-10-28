@@ -65,7 +65,7 @@ export default function Servicescsa() {
           <div className="flex flex-col justify-center items-center gap-[2rem]">
             <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
               <img
-                className="h-[500px] w-auto rounded-md cursor-pointer"
+                className="h-auto w-full rounded-md cursor-pointer"
                 src="462540898_1485017992890231_545990648056432205_n.png"
                 alt="services"
                 onClick={() => handleImageClick("462540898_1485017992890231_545990648056432205_n.png")}

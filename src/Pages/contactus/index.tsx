@@ -18,7 +18,7 @@ export default function ContactUs() {
         />
       </div>
       <div className="w-full flex flex-col justify-center items-center h-full text-justify gap-[1.5rem]">
-        <div className="flex flex-col py-[5rem] text-regular">
+        <div className="flex flex-col py-[5rem] text-regular text-center">
           <h1 className="text-border">
             If you have any questions:
           </h1>
@@ -28,7 +28,7 @@ export default function ContactUs() {
         <section className="flex-col gap-[4rem] h-full">
           <div className="flex flex-col justify-center items-center gap-[2rem]">
             <div className="flex justify-center items-center gap-[1rem] md:gap-[2rem]">
-              <div className="grid grid-cols-2 grid-rows-1 lg:grid-cols-2 lg:grid-rows-1 gap-[2rem]">
+              <div className="grid grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1 gap-[2rem]">
                 <Card title="Email" image="email.png" href="mailto:csa@mcm.edu.ph">csa@mcm.edu.ph</Card>
                 <Card title="Facebook" image="FacebookOutline.webp" href="https://www.facebook.com/profile.php?id=100070921430794">
                   MCM Center for Student Advising</Card>

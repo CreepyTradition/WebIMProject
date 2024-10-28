@@ -21,8 +21,8 @@ export default function AboutUs() {
     <div className="relative">
       <img
         className="-z-10 opacity-20 w-full h-screen fixed top-0 object-cover"
-        src="aboutbanner.png"
-        alt="aboutbanner"
+        src="462546259_4019652488249352_907419251188504046_n.jpg"
+        alt="aboutbg"
       />
       <section className="flex-col gap-[5rem] h-auto">
         <div className="flex flex-col md:flex-row justify-center items-center gap-[2rem]">
@@ -137,7 +137,7 @@ export default function AboutUs() {
         <div className="flex flex-col justify-center items-center gap-[2rem]">
           <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
             <img
-              className="h-[500px] w-auto rounded-md cursor-pointer"
+              className="h-auto w-full rounded-md cursor-pointer"
               src="462558439_405217282656092_1570684887792283146_n.png"
               alt="orgchart"
               onClick={() => handleImageClick("462558439_405217282656092_1570684887792283146_n.png")}
