@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 
 export default function ContactUs() {
-    useEffect(() => {
-        document.title = "Contact Us - Mapúa Malayan Colleges Mindanao";
-      }, []);
 
-    return (
-      <div>
+  useEffect(() => {
+    document.title = "Contact Us - Mapúa Malayan Colleges Mindanao";
+  }, []);
+
+  return (
+    <div>
       <div className="h-screen w-screen fixed -z-10 opacity-85">
         <img
           loading="lazy"
@@ -18,7 +19,7 @@ export default function ContactUs() {
       <div className="w-full flex flex-col justify-center items-center h-full text-justify gap-[1.5rem]">
         <div className="flex flex-col py-[5rem] text-regular">
           <h1 className="text-border">
-              Contact Us
+            Contact Us
           </h1>
         </div>
       </div>
@@ -28,21 +29,27 @@ export default function ContactUs() {
             <div className="flex justify-center items-center gap-[1rem] md:gap-[2rem]">
               <div className="grid grid-cols-1 grid-rows-1 lg:grid-cols-1 lg:grid-rows-1 gap-[2rem]">
 
-              <h1>
-              Email:
-              </h1>
-              <h3>studentservices@mcm.edu.ph</h3>
-              <h1>
-              Facebook:
-              </h1>
-              <h3>https://www.facebook.com/mmcmstudentservices</h3>
+                <h3>
+                  Email:
+                </h3>
+                <p>csa@mcm.edu.ph</p>
+                <h3>
+                  Facebook:
+                </h3>
+                <a
+                  href="https://www.facebook.com/profile.php?id=100070921430794"
+                  rel="noopener"
+                  target="_blank"
+                  title="csa"
+                  className="hover:scale-110 transition-all ease-linear"
+                >
+                  <img className="h-[150px]" src="cardReplace.png" alt="fbpic" />
+                </a>
               </div>
             </div>
-
           </div>
-
         </section>
       </div>
     </div>
-    );
-  }
+  );
+}

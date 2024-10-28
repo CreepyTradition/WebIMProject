@@ -109,6 +109,8 @@ export default function AboutUs() {
               <p className="text-regular">Eira Flores</p>
               <p className="text-blue uppercase font-medium">OSS Assistant - Helpdesk</p>
             </div>
+          </div>
+          <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
             <div className="flex flex-col justify-center items-center text-center">
               <p className="text-regular">Chloe Jan Cuaton
                 Bianca Mae Peligrino</p>

@@ -85,12 +85,12 @@ export default function HomePage() {
 
                             <Card
                                 image="/programs/EMC.jpeg"
-                                title="Entertainment & Multimedia Computing"
+                                title="Academic Exellence & Support"
                                 onClick={() => navigate("/servicescsa")}
                             >
-                                The Bachelor of Science in Entertainment and Multimedia
-                                Computing with a focus on Game Development equips students to
-                                design, develop, and manage digital games.
+                                Providing integrated advising, academic support, 
+                                and student success programs to empower students 
+                                at Malayan Colleges Mindanao.
                             </Card>
 
                         </div>

@@ -10,6 +10,10 @@ import RegisterPage from "./Pages/register";
 import RegisterLayout from "./Layouts/Register/RegisterLayout";
 import LoginLayout from "./Layouts/Login/LoginLayout";
 import LoginPage from "./Pages/login";
+import MentorLayout from "./Layouts/MentorLayout/MentorLayout";
+import MentorPage from "./Pages/mentor";
+import MenteeLayout from "./Layouts/MenteeLayout/MenteeLayout";
+import MenteePage from "./Pages/mentee";
 
 const Router = createBrowserRouter([
     {
@@ -63,6 +67,26 @@ const Router = createBrowserRouter([
             {
                 index: true,
                 element: <LoginPage />
+            },
+        ],
+    },
+    {
+        path: "mentor",
+        element: <MentorLayout />,
+        children: [
+            {
+                index: true,
+                element: <MentorPage />
+            },
+        ],
+    },
+    {
+        path: "mentee",
+        element: <MenteeLayout />,
+        children: [
+            {
+                index: true,
+                element: <MenteePage />
             },
         ],
     },

@@ -18,7 +18,7 @@ export default function Servicescsa() {
       <div className="w-full flex flex-col justify-center items-center h-full text-justify gap-[1.5rem]">
         <div className="flex flex-col py-[5rem] text-regular">
           <h1 className="text-border">
-           Services
+            Services
           </h1>
         </div>
       </div>
@@ -32,6 +32,22 @@ export default function Servicescsa() {
                 className="h-[250px] w-auto"
                 alt="mainlogo"
               />
+            </div>
+            <div>
+              <p className="text-justify">This center provides an integrated
+                advising experience for all students
+                in Malayan Colleges Mindanao. CSA
+                provides general academic advising
+                and Academic Success Programs, in
+                partnership with academic
+                departments, the Center for
+                Guidance and Counseling, the Center
+                for Scholarship and Financial
+                Assistance, and the Center for Career
+                and Placement. The Center works
+                collaboratively with the faculty and
+                other offices and resources to help
+                create student success.</p>
             </div>
 
           </div>
