@@ -15,7 +15,7 @@ export default function Login() {
             <div className="h-screen w-screen fixed -z-10 opacity-85">
                 <img
                     loading="lazy"
-                    className="object-cover w-[3000px] h-[350px]"
+                    className="object-cover w-full h-[350px]"
                     src="redbg.png"
                     alt="redbg"
                 />
