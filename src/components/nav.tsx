@@ -20,25 +20,25 @@ export default function nav() {
                         Home
                     </p>
                     <p
-                        onClick={() => navigate("about")}
+                        onClick={() => navigate("/about")}
                         className="cursor-pointer p-[0.5rem] transition-colors ease-linear hover:text-red hover:border-b-[1px] hover:border-red"
                     >
                         About
                     </p>
                     <p
-                        onClick={() => navigate("servicescsa")}
+                        onClick={() => navigate("/servicescsa")}
                         className="cursor-pointer p-[0.5rem] transition-colors ease-linear hover:text-red hover:border-b-[1px] hover:border-red"
                     >
                         Services
                     </p>
                     <p
-                        onClick={() => navigate("contact")}
+                        onClick={() => navigate("/contact")}
                         className="cursor-pointer p-[0.5rem] transition-colors ease-linear hover:text-red hover:border-b-[1px] hover:border-red"
                     >
                         Contact
                     </p>
                     <p
-                        onClick={() => navigate("login")}
+                        onClick={() => navigate("/login")}
                         className="cursor-pointer p-[0.5rem] transition-colors ease-linear hover:text-red hover:border-b-[1px] hover:border-red"
                     >
                         Login
