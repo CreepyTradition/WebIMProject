@@ -1,6 +1,10 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Button from "../../components/ui/button";
 
 export default function Register() {
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         document.title = "Register - Mapúa Malayan Colleges Mindanao";
@@ -26,46 +30,30 @@ export default function Register() {
             <div className="bg-[#fff] border-t-2 border-[#e7e7e7] h-full sticky top-0">
                 <section className="flex-col gap-[4rem] h-full">
                     <div className="flex flex-col justify-center items-center gap-[2rem]">
-                        <div className="flex justify-center items-center gap-[1rem] md:gap-[2rem]">
-                            <form className="flex flex-col gap-4">
-                                <label>
-                                    Name:
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        className="border p-2"
-                                        required
-                                    />
-                                </label>
-                                <label>
-                                    Email:
-                                    <input
-                                        type="email"
-                                        name="email"
-
-                                        className="border p-2"
-                                        required
-                                    />
-                                </label>
-                                <label>
-                                    Password:
-                                    <input
-                                        type="password"
-                                        name="password"
-
-
-                                        className="border p-2"
-                                        required
-                                    />
-                                </label>
-                                <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded">
-                                    Register
-                                </button>
-                            </form>
-                        </div>
-
+                        <form className="flex flex-col gap-6 w-full max-w-md">
+                            <div className="flex flex-col w-full">
+                                <label className="mb-1 font-medium">Email:</label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    className="border p-2 w-full rounded"
+                                    required
+                                />
+                            </div>
+                            <div className="flex flex-col w-full">
+                                <label className="mb-1 font-medium">Password:</label>
+                                <input
+                                    type="password"
+                                    name="password"
+                                    className="border p-2 w-full rounded"
+                                    required
+                                />
+                            </div>
+                            <Button type="blue" onClick={() => navigate("/")}>
+                                Register
+                            </Button>
+                        </form>
                     </div>
-
                 </section>
             </div>
         </div>
