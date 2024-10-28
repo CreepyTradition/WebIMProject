@@ -37,10 +37,10 @@ export default function HomePage() {
                         </h1>
                     </div>
                     <div className="flex gap-[1rem]">
-                        <a onClick={() => navigate("/register")}>
-                            <Button type="red">Register</Button>
-                        </a>
-                        <Button type="blue" onClick={() => navigate("/login")}>
+                        <Button type="red" onClick={() => navigate("/register")}>
+                            Register
+                        </Button>
+                        <Button className="px-[3rem]" type="blue" onClick={() => navigate("/login")}>
                             Login
                         </Button>
                     </div>
