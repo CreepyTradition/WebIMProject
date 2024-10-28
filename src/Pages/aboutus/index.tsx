@@ -121,7 +121,7 @@ export default function AboutUs() {
         <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
             <img
               className="h-[500px] w-auto rounded-md"
-              src="image.png"
+              src="462558439_405217282656092_1570684887792283146_n.png"
               alt="orgchart"
             />
         </div>

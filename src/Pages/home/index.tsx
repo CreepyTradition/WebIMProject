@@ -84,7 +84,7 @@ export default function HomePage() {
                         <div className="grid grid-cols-1 grid-rows-1 lg:grid-cols-1 lg:grid-rows-1 gap-[2rem]">
 
                             <Card
-                                image="/programs/EMC.jpeg"
+                                image="/462640253_1369432297182896_2726681043396341596_n.jpg"
                                 title="Academic Exellence & Support"
                                 onClick={() => navigate("/servicescsa")}
                             >
