@@ -1,6 +1,9 @@
 import { useEffect } from "react";
+import Card from "../../components/ui/cards";
+
 
 export default function AboutUs() {
+
   useEffect(() => {
     document.title = "About - Mapúa Malayan Colleges Mindanao";
   }, []);
@@ -59,7 +62,7 @@ export default function AboutUs() {
               <p className="text-regular">Kyna Marie O. Heje</p>
               <p className="text-blue uppercase font-medium">OSS Assistant</p>
             </div>
-          <div className="flex flex-col justify-center items-center text-center">
+            <div className="flex flex-col justify-center items-center text-center">
               <p className="text-regular">Eira Flores</p>
               <p className="text-blue uppercase font-medium">OSS Assistant - Helpdesk</p>
             </div>
@@ -118,19 +121,31 @@ export default function AboutUs() {
             </div>
           </div>
         </section>
-        <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
-            <img
-              className="h-[500px] w-auto rounded-md"
-              src="462558439_405217282656092_1570684887792283146_n.png"
-              alt="orgchart"
-            />
+        {/* <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
+          <img
+            className="h-[500px] w-auto rounded-md"
+            src="462558439_405217282656092_1570684887792283146_n.png"
+            alt="orgchart"
+          />
+        </div> */}
+        <div className="flex flex-col justify-center items-center gap-[2rem]">
+          <div className="grid grid-cols-1 grid-rows-1 lg:grid-cols-1 lg:grid-rows-1 gap-[2rem]">
+
+            <Card
+              image="462558439_405217282656092_1570684887792283146_n.png"
+              title="Academic Exellence & Support"
+            >
+              The OSS Organizational Chart
+            </Card>
+
+          </div>
         </div>
         <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
-            <img
-              className="h-[500px] w-auto rounded-md"
-              src="462541086_549926151019250_6570040595572882274_n.jpg"
-              alt="orgchart"
-            />
+          <img
+            className="h-[500px] w-auto rounded-md"
+            src="462541086_549926151019250_6570040595572882274_n.jpg"
+            alt="orgchart"
+          />
         </div>
         <div className="bg-[#f9f9f9]">
           <section className="h-auto">
