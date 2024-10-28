@@ -56,12 +56,12 @@ export default function AboutUs() {
           </div>
           <div className="grid grid-cols-3 gap-[1rem] md:gap-[1.5rem]">
             <div className="flex flex-col justify-center items-center text-center">
-              <p className="text-regular">Irish Mae O. Aberilla</p>
-              <p className="text-blue uppercase font-medium">Sports and Athletics Coordinator</p>
+              <p className="text-regular">Kyna Marie O. Heje</p>
+              <p className="text-blue uppercase font-medium">OSS Assistant</p>
             </div>
-            <div className="flex flex-col justify-center items-center text-center">
-              <p className="text-regular">** For Hiring</p>
-              <p className="text-blue uppercase font-medium">CGC Coordinator</p>
+          <div className="flex flex-col justify-center items-center text-center">
+              <p className="text-regular">Eira Flores</p>
+              <p className="text-blue uppercase font-medium">OSS Assistant - Helpdesk</p>
             </div>
             <div className="flex flex-col justify-center items-center text-center">
               <p className="text-regular">Charlymer Dingal</p>
@@ -82,8 +82,10 @@ export default function AboutUs() {
               <p className="text-blue uppercase font-medium">Help Center</p>
             </div>
             <div className="flex flex-col justify-center items-center text-center">
-              <p className="text-regular">*Wichester Lemen</p>
-              <p className="text-blue uppercase font-medium">Coach</p>
+              <p className="text-regular">Samantha Grace Espino<br></br>
+                Kenneth R. Alquino<br></br>
+                Nissi John F. Salende</p>
+              <p className="text-blue uppercase font-medium">CSA Facilitators</p>
             </div>
             <div className="flex flex-col justify-center items-center text-center">
               <p className="text-regular">Renzo James Sandoval<br></br>
@@ -92,32 +94,44 @@ export default function AboutUs() {
               <p className="text-blue uppercase font-medium">CGC Facilitators</p>
             </div>
             <div className="flex flex-col justify-center items-center text-center">
-              <p className="text-regular">Kyna Marie O. Heje</p>
-              <p className="text-blue uppercase font-medium">OSS Assistant</p>
+              <p className="text-regular">Chloe Jan Cuaton<br></br>
+                Bianca Mae Peligrino</p>
+              <p className="text-blue uppercase font-medium">Psychometricians</p>
             </div>
             <div className="flex flex-col justify-center items-center text-center">
-              <p className="text-regular">Samantha Grace Espino<br></br>
-                Kenneth R. Alquino<br></br>
-                Nissi John F. Salende</p>
-              <p className="text-blue uppercase font-medium">CSA Facilitators</p>
+              <p className="text-regular">** For Hiring</p>
+              <p className="text-blue uppercase font-medium">CGC Coordinator</p>
             </div>
             <div className="flex flex-col justify-center items-center text-center">
-              <p className="text-regular">** SA as needed</p>
-              <p className="text-blue uppercase font-medium">CSFA Assistant</p>
+              <p className="text-regular">*Wichester Lemen</p>
+              <p className="text-blue uppercase font-medium">Coach</p>
             </div>
             <div className="flex flex-col justify-center items-center text-center">
-              <p className="text-regular">Eira Flores</p>
-              <p className="text-blue uppercase font-medium">OSS Assistant - Helpdesk</p>
+              <p className="text-regular">Irish Mae O. Aberilla</p>
+              <p className="text-blue uppercase font-medium">Sports and Athletics Coordinator</p>
             </div>
           </div>
           <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
             <div className="flex flex-col justify-center items-center text-center">
-              <p className="text-regular">Chloe Jan Cuaton
-                Bianca Mae Peligrino</p>
-              <p className="text-blue uppercase font-medium">Psychometrician</p>
+              <p className="text-regular">** SA as needed</p>
+              <p className="text-blue uppercase font-medium">CSFA Assistant</p>
             </div>
           </div>
         </section>
+        <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
+            <img
+              className="h-[500px] w-auto rounded-md"
+              src="image.png"
+              alt="orgchart"
+            />
+        </div>
+        <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
+            <img
+              className="h-[500px] w-auto rounded-md"
+              src="462541086_549926151019250_6570040595572882274_n.jpg"
+              alt="orgchart"
+            />
+        </div>
         <div className="bg-[#f9f9f9]">
           <section className="h-auto">
             <div className="grid grid-cols-1 md:grid-rows-1 md:grid-cols-2 items-start justify-center gap-[2rem] max-w-[968px]">

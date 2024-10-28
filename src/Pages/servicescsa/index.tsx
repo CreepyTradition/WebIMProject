@@ -49,9 +49,14 @@ export default function Servicescsa() {
                 other offices and resources to help
                 create student success.</p>
             </div>
-
           </div>
-
+          <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
+          <img
+            className="h-[345px] w-auto rounded-md"
+            src="462540898_1485017992890231_545990648056432205_n.png"
+            alt="services"
+          />
+        </div>
         </section>
       </div>
     </div>
