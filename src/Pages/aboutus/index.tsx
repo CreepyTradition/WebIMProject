@@ -9,7 +9,7 @@ export default function AboutUs() {
     document.title = "About - Mapúa Malayan Colleges Mindanao";
   }, []);
 
-  const handleImageClick = (src) => {
+  const handleImageClick = (src: string) => {
     setModalImageSrc(src);
     setIsModalOpen(true);
   };
