@@ -1,10 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/ui/button";
 import { useEffect } from "react";
+import supabase from "../../config/supbaseClient.tsx";
 
 export default function HomePage() {
 
     const navigate = useNavigate();
+
+    console.log(supabase);
 
     useEffect(() => {
         document.title = "Home - Mapúa Malayan Colleges Mindanao";
@@ -37,10 +40,10 @@ export default function HomePage() {
                         </h1>
                     </div>
                     <div className="flex gap-[1rem]">
-                        <Button type="red" onClick={() => navigate("/register")}>
+                        <Button variant="red" onClick={() => navigate("/register")}>
                             Register
                         </Button>
-                        <Button className="px-[3rem]" type="blue" onClick={() => navigate("/login")}>
+                        <Button className="px-[3rem]" variant="blue" onClick={() => navigate("/login")}>
                             Login
                         </Button>
                     </div>
@@ -97,7 +100,7 @@ export default function HomePage() {
                                     at Malayan Colleges Mindanao.</p>
                                 <Button
                                     className="!px-[6rem] mt-4"
-                                    type="regular"
+                                    variant="regular"
                                     onClick={() => navigate("/servicescsa")}
                                 >
                                     Learn more

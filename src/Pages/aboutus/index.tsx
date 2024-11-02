@@ -46,7 +46,7 @@ export default function AboutUs() {
         </div>
       </section>
       <div className="sticky top-0 bg-[#fff]">
-        {/* <section className="h-auto justify-center flex-col gap-[1.5rem]">
+        <section className="h-auto justify-center flex-col gap-[1.5rem]">
           <h2 className="text-regular font-semibold">Meet the Team</h2>
           <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
             <img
@@ -133,7 +133,7 @@ export default function AboutUs() {
               <p className="text-blue uppercase font-medium">CSFA Assistant</p>
             </div>
           </div>
-        </section> */}
+        </section>
         <div className="flex flex-col justify-center items-center gap-[2rem]">
           <div className="flex flex-col text-center justify-center items-center pt-[3rem] gap-[1rem]">
             <img

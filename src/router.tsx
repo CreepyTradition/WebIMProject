@@ -26,22 +26,22 @@ const Router = createBrowserRouter([
             }
             ,
             {
-                path: "about",
+                path: "/about",
                 element: <AboutUs />
             },
             {
-                path: "servicescsa",
+                path: "/servicescsa",
                 element: <Servicescsa />
             },
             {
-                path: "contact",
+                path: "/contact",
                 element: <ContactUs />
             }
         ]
     },
 
     {
-        path: "faculty",
+        path: "/faculty",
         element: <FacultyLayout />,
         children: [
             {
@@ -51,7 +51,7 @@ const Router = createBrowserRouter([
         ],
     },
     {
-        path: "register",
+        path: "/register",
         element: <RegisterLayout />,
         children: [
             {
@@ -61,7 +61,7 @@ const Router = createBrowserRouter([
         ],
     },
     {
-        path: "login",
+        path: "/login",
         element: <LoginLayout />,
         children: [
             {
@@ -71,7 +71,7 @@ const Router = createBrowserRouter([
         ],
     },
     {
-        path: "mentor",
+        path: "/mentor",
         element: <MentorLayout />,
         children: [
             {
@@ -81,7 +81,7 @@ const Router = createBrowserRouter([
         ],
     },
     {
-        path: "mentee",
+        path: "/mentee",
         element: <MenteeLayout />,
         children: [
             {
