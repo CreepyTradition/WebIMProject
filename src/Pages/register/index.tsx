@@ -3,10 +3,6 @@ import { useNavigate } from "react-router-dom";
 import Button from "../../components/ui/button";
 import supabase from "../../config/supbaseClient";
 
-interface Profile {
-  id: string;
-  account_type: string;
-}
 
 export default function Register() {
   const [email, setEmail] = useState<string>("");
