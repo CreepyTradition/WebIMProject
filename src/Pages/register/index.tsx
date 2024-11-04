@@ -14,10 +14,9 @@ export default function Register(): JSX.Element {
     const [departments, setDepartments] = useState<any[]>([]);
     const [programs, setPrograms] = useState<any[]>([]);
     const [error, setError] = useState<string | null>(null);
+    const [fetchError, setFetchError] = useState<string | null>(null);
 
     const navigate = useNavigate();
-
-    console.log(supabase);
 
     useEffect(() => {
         document.title = "Register - Mapúa Malayan Colleges Mindanao";
@@ -33,50 +32,58 @@ export default function Register(): JSX.Element {
     }, [department]);
 
     const fetchDepartments = () => {
-        // Static departments
-        const staticDepartments = [
-            { Dept_ID: "1", Dept_Name: "ATYCB" },
-            { Dept_ID: "2", Dept_Name: "CAS" },
-            { Dept_ID: "3", Dept_Name: "CCIS" },
-            { Dept_ID: "4", Dept_Name: "CEA" },
-            { Dept_ID: "5", Dept_Name: "CHS" },
-        ];
-        setDepartments(staticDepartments);
+        try {
+            // Static departments
+            const staticDepartments = [
+                { Dept_ID: "1", Dept_Name: "ATYCB" },
+                { Dept_ID: "2", Dept_Name: "CAS" },
+                { Dept_ID: "3", Dept_Name: "CCIS" },
+                { Dept_ID: "4", Dept_Name: "CEA" },
+                { Dept_ID: "5", Dept_Name: "CHS" },
+            ];
+            setDepartments(staticDepartments);
+        } catch (error) {
+            setFetchError("Failed to fetch departments. Please try again later.");
+        }
     };
 
     const updatePrograms = (deptId: string) => {
-        const allPrograms: { [key: string]: { Program_ID: string; Program_Description: string }[] } = {
-            "1": [
-                { Program_ID: "1", Program_Description: "BS Accountancy" },
-                { Program_ID: "2", Program_Description: "BS Entrepreneurship" },
-                { Program_ID: "3", Program_Description: "BS Management Accounting" },
-                { Program_ID: "4", Program_Description: "BS Tourism Management" },
-            ],
-            "2": [
-                { Program_ID: "5", Program_Description: "BA Communication Program" },
-                { Program_ID: "6", Program_Description: "BA Multimedia Arts Program" },
-            ],
-            "3": [
-                { Program_ID: "7", Program_Description: "BS Computer Science" },
-                { Program_ID: "8", Program_Description: "BS Entertainment and Multimedia Computing" },
-                { Program_ID: "9", Program_Description: "BS Information Systems" },
-            ],
-            "4": [
-                { Program_ID: "10", Program_Description: "BS Architecture" },
-                { Program_ID: "11", Program_Description: "BS Chemical Engineering" },
-                { Program_ID: "12", Program_Description: "BS Civil Engineering" },
-                { Program_ID: "13", Program_Description: "BS Computer Engineering" },
-                { Program_ID: "14", Program_Description: "BS Electrical Engineering" },
-                { Program_ID: "15", Program_Description: "BS Electronics Engineering" },
-                { Program_ID: "16", Program_Description: "BS Industrial Engineering" },
-                { Program_ID: "17", Program_Description: "BS Mechanical Engineering" },
-            ],
-            "5": [
-                { Program_ID: "18", Program_Description: "BS Biology" },
-                { Program_ID: "19", Program_Description: "BS Psychology" },
-            ],
-        };
-        setPrograms(allPrograms[deptId] || []);
+        try {
+            const allPrograms: { [key: string]: { Program_ID: string; Program_Description: string }[] } = {
+                "1": [
+                    { Program_ID: "1", Program_Description: "BS Accountancy" },
+                    { Program_ID: "2", Program_Description: "BS Entrepreneurship" },
+                    { Program_ID: "3", Program_Description: "BS Management Accounting" },
+                    { Program_ID: "4", Program_Description: "BS Tourism Management" },
+                ],
+                "2": [
+                    { Program_ID: "5", Program_Description: "BA Communication Program" },
+                    { Program_ID: "6", Program_Description: "BA Multimedia Arts Program" },
+                ],
+                "3": [
+                    { Program_ID: "7", Program_Description: "BS Computer Science" },
+                    { Program_ID: "8", Program_Description: "BS Entertainment and Multimedia Computing" },
+                    { Program_ID: "9", Program_Description: "BS Information Systems" },
+                ],
+                "4": [
+                    { Program_ID: "10", Program_Description: "BS Architecture" },
+                    { Program_ID: "11", Program_Description: "BS Chemical Engineering" },
+                    { Program_ID: "12", Program_Description: "BS Civil Engineering" },
+                    { Program_ID: "13", Program_Description: "BS Computer Engineering" },
+                    { Program_ID: "14", Program_Description: "BS Electrical Engineering" },
+                    { Program_ID: "15", Program_Description: "BS Electronics Engineering" },
+                    { Program_ID: "16", Program_Description: "BS Industrial Engineering" },
+                    { Program_ID: "17", Program_Description: "BS Mechanical Engineering" },
+                ],
+                "5": [
+                    { Program_ID: "18", Program_Description: "BS Biology" },
+                    { Program_ID: "19", Program_Description: "BS Psychology" },
+                ],
+            };
+            setPrograms(allPrograms[deptId] || []);
+        } catch (error) {
+            setFetchError("Failed to update programs. Please try again later.");
+        }
     };
 
     const handleRegister = async (e: FormEvent) => {
@@ -102,11 +109,6 @@ export default function Register(): JSX.Element {
 
             // If sign-up is successful, proceed to insert user details in the 'Student' table
             if (data?.user) {
-                const token = data.session?.access_token;
-                if (token) {
-                    localStorage.setItem("authToken", token); // Store token securely
-                }
-
                 const { error: insertError } = await supabase.from("Student").insert({
                     Student_FirstName: firstName,
                     Student_LastName: lastName,
@@ -250,6 +252,11 @@ export default function Register(): JSX.Element {
                             {error && (
                                 <div className="text-red-600 font-medium text-center">
                                     {error}
+                                </div>
+                            )}
+                            {fetchError && (
+                                <div className="text-red-600 font-medium text-center">
+                                    {fetchError}
                                 </div>
                             )}
                             <Button variant="blue" type="submit">

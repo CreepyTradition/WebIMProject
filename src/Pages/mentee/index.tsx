@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 export default function MenteePage() {
     useEffect(() => {
-        document.title = "Mentee - Mapúa Malayan Colleges Mindanao";
+        document.title = "Student - Mapúa Malayan Colleges Mindanao";
     }, []);
 
     return (
@@ -18,7 +18,7 @@ export default function MenteePage() {
             <div className="w-full flex flex-col justify-center items-center h-full text-justify gap-[1.5rem]">
                 <div className="flex flex-col py-[5rem] text-regular">
                     <h1 className="text-border">
-                        Mentee
+                        Student
                     </h1>
                 </div>
             </div>
