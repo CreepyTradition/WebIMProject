@@ -5,7 +5,7 @@ import { ReactLenis } from '@studio-freight/react-lenis'
 import { useEffect } from "react";
 
 
-export default function MenteeLayout() {
+export default function BookingLayout() {
 const { pathname } = useLocation();
 
 useEffect(() => {

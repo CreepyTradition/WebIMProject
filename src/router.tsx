@@ -14,6 +14,8 @@ import MentorLayout from "./Layouts/MentorLayout/MentorLayout";
 import MentorPage from "./Pages/mentor";
 import MenteeLayout from "./Layouts/MenteeLayout/MenteeLayout";
 import MenteePage from "./Pages/mentee";
+import BookingLayout from "./Layouts/BookingLayout/BookingLayout";
+import BookingPage from "./Pages/booking";
 
 const Router = createBrowserRouter([
     {
@@ -91,9 +93,20 @@ const Router = createBrowserRouter([
         ],
     },
     {
+        path: "/booking",
+        element: <BookingLayout />,
+        children: [
+            {
+                index: true,
+                element: <BookingPage />
+            },
+        ],
+    },
+    {
         path: "*",
         element: <Navigate to="/" replace />
     }
 ]);
+
 
 export default Router;

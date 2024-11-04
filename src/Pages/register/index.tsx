@@ -3,18 +3,29 @@ import { useNavigate } from "react-router-dom";
 import Button from "../../components/ui/button";
 import supabase from "../../config/supbaseClient";
 
+interface Department {
+    Dept_ID: string;
+    Dept_Name: string;
+}
+
+interface Program {
+    Program_ID: string;
+    Program_Description: string;
+}
+
 export default function Register(): JSX.Element {
-    const [email, setEmail] = useState<string>("");
-    const [password, setPassword] = useState<string>("");
-    const [firstName, setFirstName] = useState<string>("");
-    const [lastName, setLastName] = useState<string>("");
-    const [gender, setGender] = useState<string>("");
-    const [department, setDepartment] = useState<string>("");
-    const [program, setProgram] = useState<string>("");
-    const [departments, setDepartments] = useState<any[]>([]);
-    const [programs, setPrograms] = useState<any[]>([]);
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        gender: "",
+        department: "",
+        program: "",
+        email: "",
+        password: "",
+    });
+    const [departments, setDepartments] = useState<Department[]>([]);
+    const [programs, setPrograms] = useState<Program[]>([]);
     const [error, setError] = useState<string | null>(null);
-    const [fetchError, setFetchError] = useState<string | null>(null);
 
     const navigate = useNavigate();
 
@@ -24,81 +35,84 @@ export default function Register(): JSX.Element {
     }, []);
 
     useEffect(() => {
-        if (department) {
-            updatePrograms(department);
+        if (formData.department) {
+            updatePrograms(formData.department);
         } else {
-            setPrograms([]); // Clear programs when no department is selected
+            setPrograms([]);
         }
-    }, [department]);
+    }, [formData.department]);
 
     const fetchDepartments = () => {
-        try {
-            // Static departments
-            const staticDepartments = [
-                { Dept_ID: "1", Dept_Name: "ATYCB" },
-                { Dept_ID: "2", Dept_Name: "CAS" },
-                { Dept_ID: "3", Dept_Name: "CCIS" },
-                { Dept_ID: "4", Dept_Name: "CEA" },
-                { Dept_ID: "5", Dept_Name: "CHS" },
-            ];
-            setDepartments(staticDepartments);
-        } catch (error) {
-            setFetchError("Failed to fetch departments. Please try again later.");
-        }
+        const staticDepartments: Department[] = [
+            { Dept_ID: "1", Dept_Name: "ATYCB" },
+            { Dept_ID: "2", Dept_Name: "CAS" },
+            { Dept_ID: "3", Dept_Name: "CCIS" },
+            { Dept_ID: "4", Dept_Name: "CEA" },
+            { Dept_ID: "5", Dept_Name: "CHS" },
+        ];
+        setDepartments(staticDepartments);
     };
 
     const updatePrograms = (deptId: string) => {
-        try {
-            const allPrograms: { [key: string]: { Program_ID: string; Program_Description: string }[] } = {
-                "1": [
-                    { Program_ID: "1", Program_Description: "BS Accountancy" },
-                    { Program_ID: "2", Program_Description: "BS Entrepreneurship" },
-                    { Program_ID: "3", Program_Description: "BS Management Accounting" },
-                    { Program_ID: "4", Program_Description: "BS Tourism Management" },
-                ],
-                "2": [
-                    { Program_ID: "5", Program_Description: "BA Communication Program" },
-                    { Program_ID: "6", Program_Description: "BA Multimedia Arts Program" },
-                ],
-                "3": [
-                    { Program_ID: "7", Program_Description: "BS Computer Science" },
-                    { Program_ID: "8", Program_Description: "BS Entertainment and Multimedia Computing" },
-                    { Program_ID: "9", Program_Description: "BS Information Systems" },
-                ],
-                "4": [
-                    { Program_ID: "10", Program_Description: "BS Architecture" },
-                    { Program_ID: "11", Program_Description: "BS Chemical Engineering" },
-                    { Program_ID: "12", Program_Description: "BS Civil Engineering" },
-                    { Program_ID: "13", Program_Description: "BS Computer Engineering" },
-                    { Program_ID: "14", Program_Description: "BS Electrical Engineering" },
-                    { Program_ID: "15", Program_Description: "BS Electronics Engineering" },
-                    { Program_ID: "16", Program_Description: "BS Industrial Engineering" },
-                    { Program_ID: "17", Program_Description: "BS Mechanical Engineering" },
-                ],
-                "5": [
-                    { Program_ID: "18", Program_Description: "BS Biology" },
-                    { Program_ID: "19", Program_Description: "BS Psychology" },
-                ],
-            };
-            setPrograms(allPrograms[deptId] || []);
-        } catch (error) {
-            setFetchError("Failed to update programs. Please try again later.");
-        }
+        const allPrograms: { [key: string]: Program[] } = {
+            "1": [
+                { Program_ID: "1", Program_Description: "BS Accountancy" },
+                { Program_ID: "2", Program_Description: "BS Entrepreneurship" },
+                { Program_ID: "3", Program_Description: "BS Management Accounting" },
+                { Program_ID: "4", Program_Description: "BS Tourism Management" },
+            ],
+            "2": [
+                { Program_ID: "5", Program_Description: "BA Communication Program" },
+                { Program_ID: "6", Program_Description: "BA Multimedia Arts Program" },
+            ],
+            "3": [
+                { Program_ID: "7", Program_Description: "BS Computer Science" },
+                { Program_ID: "8", Program_Description: "BS Entertainment and Multimedia Computing" },
+                { Program_ID: "9", Program_Description: "BS Information Systems" },
+            ],
+            "4": [
+                { Program_ID: "10", Program_Description: "BS Architecture" },
+                { Program_ID: "11", Program_Description: "BS Chemical Engineering" },
+                { Program_ID: "12", Program_Description: "BS Civil Engineering" },
+                { Program_ID: "13", Program_Description: "BS Computer Engineering" },
+                { Program_ID: "14", Program_Description: "BS Electrical Engineering" },
+                { Program_ID: "15", Program_Description: "BS Electronics Engineering" },
+                { Program_ID: "16", Program_Description: "BS Industrial Engineering" },
+                { Program_ID: "17", Program_Description: "BS Mechanical Engineering" },
+            ],
+            "5": [
+                { Program_ID: "18", Program_Description: "BS Biology" },
+                { Program_ID: "19", Program_Description: "BS Psychology" },
+            ],
+        };
+        setPrograms(allPrograms[deptId] || []);
+    };
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        const { name, value } = event.target;
+        setFormData((prevFormData) => ({
+            ...prevFormData,
+            [name]: value,
+        }));
     };
 
     const handleRegister = async (e: FormEvent) => {
         e.preventDefault();
 
-        if (password.length < 6) {
+        if (formData.password.length < 6) {
             setError("Password must be at least 6 characters long.");
             return;
         }
 
         try {
-            // First, sign up the user with Supabase
             const { data, error } = await supabase.auth.signUp({
-                email,
-                password,
+                email: formData.email,
+                password: formData.password,
+                options: {
+                    data: {
+                        display_name: formData.firstName,
+                    },
+                },
             });
 
             if (error) {
@@ -107,17 +121,16 @@ export default function Register(): JSX.Element {
                 return;
             }
 
-            // If sign-up is successful, proceed to insert user details in the 'Student' table
             if (data?.user) {
                 const { error: insertError } = await supabase.from("Student").insert({
-                    Student_FirstName: firstName,
-                    Student_LastName: lastName,
-                    Gender: gender === "male" ? 1 : 2, // Assuming 1 = Male, 2 = Female
-                    Dept_ID: department,
-                    Program_ID: program,
-                    Date_Registered: new Date().toISOString(), // Store registration date
-                    Student_Username: email,
-                    Student_Password: password, // Keeping the password for database login
+                    Student_FirstName: formData.firstName,
+                    Student_LastName: formData.lastName,
+                    Gender: formData.gender === "male" ? 1 : 2,
+                    Dept_ID: formData.department,
+                    Program_ID: formData.program,
+                    Date_Registered: new Date().toISOString(),
+                    Student_Username: formData.email,
+                    Student_Password: formData.password,
                 });
 
                 if (insertError) {
@@ -127,7 +140,7 @@ export default function Register(): JSX.Element {
                 }
 
                 console.log("Registration successful:", data);
-                navigate("/login"); // Navigate to the login page after successful registration
+                navigate("/login");
             }
         } catch (err: any) {
             console.error("Unexpected registration error:", err);
@@ -164,8 +177,8 @@ export default function Register(): JSX.Element {
                                     name="firstName"
                                     className="border p-2 w-full rounded"
                                     required
-                                    value={firstName}
-                                    onChange={(e) => setFirstName(e.target.value)}
+                                    value={formData.firstName}
+                                    onChange={handleChange}
                                 />
                             </div>
                             <div className="flex flex-col w-full">
@@ -175,8 +188,8 @@ export default function Register(): JSX.Element {
                                     name="lastName"
                                     className="border p-2 w-full rounded"
                                     required
-                                    value={lastName}
-                                    onChange={(e) => setLastName(e.target.value)}
+                                    value={formData.lastName}
+                                    onChange={handleChange}
                                 />
                             </div>
                             <div className="flex flex-col w-full">
@@ -185,8 +198,8 @@ export default function Register(): JSX.Element {
                                     name="gender"
                                     className="border p-2 w-full rounded"
                                     required
-                                    value={gender}
-                                    onChange={(e) => setGender(e.target.value)}
+                                    value={formData.gender}
+                                    onChange={handleChange}
                                 >
                                     <option value="">Select Gender</option>
                                     <option value="male">Male</option>
@@ -199,8 +212,8 @@ export default function Register(): JSX.Element {
                                     name="department"
                                     className="border p-2 w-full rounded"
                                     required
-                                    value={department}
-                                    onChange={(e) => setDepartment(e.target.value)}
+                                    value={formData.department}
+                                    onChange={handleChange}
                                 >
                                     <option value="">Select Department</option>
                                     {departments.map((dept) => (
@@ -216,8 +229,8 @@ export default function Register(): JSX.Element {
                                     name="program"
                                     className="border p-2 w-full rounded"
                                     required
-                                    value={program}
-                                    onChange={(e) => setProgram(e.target.value)}
+                                    value={formData.program}
+                                    onChange={handleChange}
                                 >
                                     <option value="">Select Program</option>
                                     {programs.map((prog) => (
@@ -234,8 +247,8 @@ export default function Register(): JSX.Element {
                                     name="email"
                                     className="border p-2 w-full rounded"
                                     required
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
+                                    value={formData.email}
+                                    onChange={handleChange}
                                 />
                             </div>
                             <div className="flex flex-col w-full">
@@ -245,18 +258,13 @@ export default function Register(): JSX.Element {
                                     name="password"
                                     className="border p-2 w-full rounded"
                                     required
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
+                                    value={formData.password}
+                                    onChange={handleChange}
                                 />
                             </div>
                             {error && (
                                 <div className="text-red-600 font-medium text-center">
                                     {error}
-                                </div>
-                            )}
-                            {fetchError && (
-                                <div className="text-red-600 font-medium text-center">
-                                    {fetchError}
                                 </div>
                             )}
                             <Button variant="blue" type="submit">
