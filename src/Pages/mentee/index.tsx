@@ -34,27 +34,27 @@ export default function MenteePage() {
                             <div className="grid grid-cols-1 grid-rows-3 lg:grid-cols-3 lg:grid-rows-1 gap-[2rem]">
                                 <Card
                                     title="John Perkin Abrantes"
-                                    icon="noto:man"
-                                    iconSize="text-[3rem]"
+                                    icon="iconoir:developer"
+                                    iconSize="text-[10rem]"
                                     onClick={() => navigate('/booking')}
                                 >
-                                    Mental Breakdowns<br /> Mental Insability Unreliable Labor
+                                    Main Developer
                                 </Card>
                                 <Card
-                                    title="Facebook"
-                                    icon="icon-park:facebook-one"
-                                    iconSize="text-[8.5rem]"
-                                    href="https://www.facebook.com/profile.php?id=100070921430794"
+                                    title="Josh Marco Goc-ong"
+                                    icon="fluent-mdl2:party-leader"
+                                    iconSize="text-[10rem]"
+                                    onClick={() => navigate('/booking')}
                                 >
-                                    MCM Center for Student Advising
+                                    Team Leader
                                 </Card>
                                 <Card
-                                    title="Teams"
-                                    icon="ph:microsoft-teams-logo-light"
-                                    iconSize="text-[8.5rem]"
-                                    href="https://teams.microsoft.com/l/chat/0/0?users=sgdespino@mcm.edu.ph"
+                                    title="Karyll Grace Bontuyan"
+                                    icon="oui:documentation"
+                                    iconSize="text-[10rem]"
+                                    onClick={() => navigate('/booking')}
                                 >
-                                    Samantha Espino<br />CSA Facilitator
+                                    Documentation
                                 </Card>
                             </div>
                         </div>

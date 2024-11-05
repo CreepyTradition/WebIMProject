@@ -81,7 +81,7 @@ export default function Servicescsa() {
                   title="Mentorship Program"
                   icon="streamline-emojis:man-student-2"
                   iconSize="text-[10rem]"
-                  onClick={() => navigate('/mentee')}>
+                  onClick={() => navigate('/mentorship')}>
                   A program where students help other students with subjects they struggle on with a facilitator
                 </Card>
               </div>
