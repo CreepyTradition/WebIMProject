@@ -27,38 +27,39 @@ export default function MenteePage() {
                 </div>
             </div>
             <div className="bg-[#fff] border-t-2 border-[#e7e7e7] h-full sticky top-0">
-            <section className="flex-col gap-[4rem] h-full">
-                <div className="flex flex-col justify-center items-center gap-[2rem]">
-                    <div className="flex justify-center items-center gap-[1rem] md:gap-[2rem]">
-                        <div className="grid grid-cols-1 grid-rows-3 lg:grid-cols-3 lg:grid-rows-1 gap-[2rem]">
-                            <Card 
-                                title="Booking" 
-                                icon="mdi:book-clock-outline" 
-                                iconSize="text-[10rem]" 
-                                onClick={() => navigate('/booking')}
-                            >
-                                Book your session
-                            </Card>
-                            <Card 
-                                title="Facebook" 
-                                icon="icon-park:facebook-one" 
-                                iconSize="text-[8.5rem]" 
-                                href="https://www.facebook.com/profile.php?id=100070921430794"
-                            >
-                                MCM Center for Student Advising
-                            </Card>
-                            <Card 
-                                title="Teams" 
-                                icon="ph:microsoft-teams-logo-light" 
-                                iconSize="text-[8.5rem]" 
-                                href="https://teams.microsoft.com/l/chat/0/0?users=sgdespino@mcm.edu.ph"
-                            >
-                                Samantha Espino<br />CSA Facilitator
-                            </Card>
+                <section className="flex-col gap-[4rem] h-full">
+                    <h1 className="text-regular">Mentors</h1>
+                    <div className="flex flex-col justify-center items-center gap-[2rem]">
+                        <div className="flex justify-center items-center gap-[1rem] md:gap-[2rem]">
+                            <div className="grid grid-cols-1 grid-rows-3 lg:grid-cols-3 lg:grid-rows-1 gap-[2rem]">
+                                <Card
+                                    title="John Perkin Abrantes"
+                                    icon="noto:man"
+                                    iconSize="text-[3rem]"
+                                    onClick={() => navigate('/booking')}
+                                >
+                                    Mental Breakdowns<br /> Mental Insability Unreliable Labor
+                                </Card>
+                                <Card
+                                    title="Facebook"
+                                    icon="icon-park:facebook-one"
+                                    iconSize="text-[8.5rem]"
+                                    href="https://www.facebook.com/profile.php?id=100070921430794"
+                                >
+                                    MCM Center for Student Advising
+                                </Card>
+                                <Card
+                                    title="Teams"
+                                    icon="ph:microsoft-teams-logo-light"
+                                    iconSize="text-[8.5rem]"
+                                    href="https://teams.microsoft.com/l/chat/0/0?users=sgdespino@mcm.edu.ph"
+                                >
+                                    Samantha Espino<br />CSA Facilitator
+                                </Card>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
             </div>
         </div>
     );

@@ -1,13 +1,26 @@
-import { useEffect } from "react";
-import Card from "../../components/ui/cards";
+import { useState } from "react";
+import BookingForm from "../../components/ui/bookingForm";
 
 export default function BookingPage() {
+  const subjects = [
+    { Subject_ID: "1", Name: "Mathematics" },
+    { Subject_ID: "2", Name: "Science" }
+  ];
 
-  useEffect(() => {
-    document.title = "Booking - Mapúa Malayan Colleges Mindanao";
-  }, []);
+  const facilitators = [
+    { Facilitator_ID: "1", Name: "John Doe" },
+    { Facilitator_ID: "2", Name: "Jane Smith" }
+  ];
+
+  const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
+  const [selectedFacilitator, setSelectedFacilitator] = useState<string | null>(null);
+
+  const handleBookingSubmit = (bookingDetails: { subjectId: string; facilitatorId: string; timeSlot: string }) => {
+    alert(`Booking submitted for Subject ID: ${bookingDetails.subjectId}, Facilitator ID: ${bookingDetails.facilitatorId}, Time Slot: ${bookingDetails.timeSlot}`);
+  };
 
   return (
+
     <div>
       <div className="h-screen w-screen fixed -z-10 opacity-85">
         <img
@@ -24,19 +37,18 @@ export default function BookingPage() {
           </h1>
         </div>
       </div>
-       <div className="bg-[#fff] border-t-2 border-[#e7e7e7] h-full sticky top-0">
+      <div className="bg-[#fff] border-t-2 border-[#e7e7e7] h-full sticky top-0">
         <section className="flex-col gap-[4rem] h-full">
-          <div className="flex flex-col justify-center items-center gap-[2rem]">
-            <div className="flex justify-center items-center gap-[1rem] md:gap-[2rem]">
-              <div className="grid grid-cols-1 grid-rows-3 lg:grid-cols-3 lg:grid-rows-1 gap-[2rem]">
-                <Card title="Email" icon="material-symbols:mail-outline" iconSize="text-[10rem]" href="mailto:csa@mcm.edu.ph">csa@mcm.edu.ph</Card>
-                <Card title="Facebook" icon="icon-park:facebook-one" iconSize="text-[8.5rem]" href="https://www.facebook.com/profile.php?id=100070921430794">
-                  MCM Center for Student Advising</Card>
-                <Card title="Teams" icon="ph:microsoft-teams-logo-light" iconSize="text-[8.5rem]" href="https://teams.microsoft.com/l/chat/0/0?users=sgdespino@mcm.edu.ph">
-                  Samantha Espino<br />CSA Facilitator</Card>
-                  
-              </div>
-            </div>
+          <div className="w-full max-w-3xl mt-8">
+            <BookingForm
+              subjects={subjects}
+              facilitators={facilitators}
+              selectedSubject={selectedSubject}
+              setSelectedSubject={setSelectedSubject}
+              selectedFacilitator={selectedFacilitator}
+              setSelectedFacilitator={setSelectedFacilitator}
+              onBookingSubmit={handleBookingSubmit}
+            />
           </div>
         </section>
       </div>

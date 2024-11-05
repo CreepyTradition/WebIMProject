@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Card from "../../components/ui/cards";
 
 export default function Servicescsa() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImageSrc, setModalImageSrc] = useState("");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = "Services - Mapúa Malayan Colleges Mindanao";
@@ -71,6 +75,17 @@ export default function Servicescsa() {
                 onClick={() => handleImageClick("462540898_1485017992890231_545990648056432205_n.png")}
               />
             </div>
+            <section>
+              <div className="grid grid-cols-1 grid-rows-1 lg:grid-cols-1 lg:grid-rows-1 gap-[2rem]">
+                <Card
+                  title="Mentorship Program"
+                  icon="streamline-emojis:man-student-2"
+                  iconSize="text-[10rem]"
+                  onClick={() => navigate('/mentee')}>
+                  A program where students help other students with subjects they struggle on with a facilitator
+                </Card>
+              </div>
+            </section>
           </div>
         </section>
       </div>

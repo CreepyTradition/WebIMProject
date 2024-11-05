@@ -16,6 +16,8 @@ import MenteeLayout from "./Layouts/MenteeLayout/MenteeLayout";
 import MenteePage from "./Pages/mentee";
 import BookingLayout from "./Layouts/BookingLayout/BookingLayout";
 import BookingPage from "./Pages/booking";
+import MentorshipLayout from "./Layouts/MentorshipLayout/MentorshipLayout";
+import MentorshipPage from "./Pages/mentorshipprogram";
 
 const Router = createBrowserRouter([
     {
@@ -38,6 +40,14 @@ const Router = createBrowserRouter([
             {
                 path: "/contact",
                 element: <ContactUs />
+            },
+            {
+                path: "/register",
+                element: <RegisterPage />
+            },
+            {
+                path: "/login",
+                element: <LoginPage />
             }
         ]
     },
@@ -99,6 +109,16 @@ const Router = createBrowserRouter([
             {
                 index: true,
                 element: <BookingPage />
+            },
+        ],
+    },
+    {
+        path: "/mentorship",
+        element: <MentorshipLayout />,
+        children: [
+            {
+                index: true,
+                element: <MentorshipPage />
             },
         ],
     },
