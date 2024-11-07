@@ -1,105 +1,177 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "../../components/ui/button";
+import supabase from "../../config/supbaseClient";
 
-interface Facilitator {
-  id: string;
-  name: string;
-  csaUsername: string;
-  csaPassword: string;
-  contact: string;
-  gender: string;
+// Define the exact shape of a row in the Student_Advisor table
+interface StudentAdvisorRow {
+  Advisor_ID: number;
+  Name: string;
+  Date_Approved: string;
+  Contact: number | null;
+  SA_Username: string;
+  SA_Password: string;
+  Remarks: string;
+  Gender: number; // 1 for Male, 2 for Female
 }
 
-export default function FacilitatorPage() {
-  const [facilitators, setFacilitators] = useState<Facilitator[]>([]);
-  const [name, setName] = useState<string>("");
-  const [csaUsername, setCsaUsername] = useState<string>("");
-  const [csaPassword, setCsaPassword] = useState<string>("");
-  const [contact, setContact] = useState<string>("");
-  const [gender, setGender] = useState<string>("Male");
-  const [isEditing, setIsEditing] = useState<boolean>(false);
-  const [editId, setEditId] = useState<string | null>(null);
+// Define the interface for use in React state
+interface StudentAdvisor {
+  id: number;
+  name: string;
+  dateApproved: string;
+  contact: number | null;
+  saUsername: string;
+  saPassword: string;
+  remarks: string;
+  gender: number; // 1 for Male, 2 for Female
+}
 
-  // Handle form submission for adding or updating a facilitator
-  const handleSubmit = () => {
-    if (isEditing && editId) {
-      // Update existing facilitator
-      setFacilitators((prev) =>
-        prev.map((facilitator) =>
-          facilitator.id === editId
-            ? { id: editId, name, csaUsername, csaPassword, contact, gender }
-            : facilitator
-        )
-      );
+export default function StudentAdvisorPage() {
+  const [advisors, setAdvisors] = useState<StudentAdvisor[]>([]);
+  const [name, setName] = useState<string>("");
+  const [dateApproved, setDateApproved] = useState<string>("");
+  const [contact, setContact] = useState<number | null>(null);
+  const [saUsername, setSaUsername] = useState<string>("");
+  const [saPassword, setSaPassword] = useState<string>("");
+  const [remarks, setRemarks] = useState<string>("");
+  const [gender, setGender] = useState<number>(1); // Default to Male (1)
+  const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [editId, setEditId] = useState<number | null>(null);
+
+  // Fetch advisors from Supabase on component mount
+  useEffect(() => {
+    const fetchAdvisors = async () => {
+      const { data, error } = await supabase
+        .from("Student_Advisor")
+        .select("Advisor_ID, Name, Date_Approved, Contact, SA_Username, SA_Password, Remarks, Gender");
+
+      if (error) {
+        console.error("Error fetching advisors:", error.message);
+      } else if (data) {
+        const advisorsData = (data as unknown) as StudentAdvisorRow[];
+
+        const formattedAdvisorsData = advisorsData.map((item) => ({
+          id: item.Advisor_ID,
+          name: item.Name,
+          dateApproved: item.Date_Approved,
+          contact: item.Contact,
+          saUsername: item.SA_Username,
+          saPassword: item.SA_Password,
+          remarks: item.Remarks,
+          gender: item.Gender,
+        }));
+        setAdvisors(formattedAdvisorsData);
+      }
+    };
+    fetchAdvisors();
+  }, []);
+
+  // Handle form submission for adding or updating an advisor
+  const handleSubmit = async () => {
+    if (isEditing && editId !== null) {
+      const { error } = await supabase
+        .from("Student_Advisor")
+        .update({
+          Name: name,
+          Date_Approved: dateApproved,
+          Contact: contact,
+          SA_Username: saUsername,
+          SA_Password: saPassword,
+          Remarks: remarks,
+          Gender: gender,
+        })
+        .eq("Advisor_ID", editId);
+
+      if (error) {
+        console.error("Error updating advisor:", error.message);
+      } else {
+        setAdvisors((prev) =>
+          prev.map((advisor) =>
+            advisor.id === editId
+              ? { id: editId, name, dateApproved, contact, saUsername, saPassword, remarks, gender }
+              : advisor
+          )
+        );
+      }
       setIsEditing(false);
       setEditId(null);
     } else {
-      // Add new facilitator
-      const newFacilitator: Facilitator = {
-        id: Date.now().toString(),
-        name,
-        csaUsername,
-        csaPassword,
-        contact,
-        gender,
-      };
-      setFacilitators((prev) => [...prev, newFacilitator]);
+      const { data, error } = await supabase
+        .from("Student_Advisor")
+        .insert([{ Name: name, Date_Approved: dateApproved, Contact: contact, SA_Username: saUsername, SA_Password: saPassword, Remarks: remarks, Gender: gender }])
+        .select();
+
+      if (error) {
+        console.error("Error adding advisor:", error.message);
+      } else if (data) {
+        const newAdvisors = (data as unknown as StudentAdvisorRow[]).map((item) => ({
+          id: item.Advisor_ID,
+          name: item.Name,
+          dateApproved: item.Date_Approved,
+          contact: item.Contact,
+          saUsername: item.SA_Username,
+          saPassword: item.SA_Password,
+          remarks: item.Remarks,
+          gender: item.Gender,
+        }));
+        setAdvisors((prev) => [...prev, ...newAdvisors]);
+      }
     }
+
     // Reset form fields after submission
     setName("");
-    setCsaUsername("");
-    setCsaPassword("");
-    setContact("");
-    setGender("Male");
+    setDateApproved("");
+    setContact(null);
+    setSaUsername("");
+    setSaPassword("");
+    setRemarks("");
+    setGender(1); // Reset to Male (1)
   };
 
-  // Handle deleting a facilitator
-  const handleDelete = (id: string) => {
-    const confirmed = window.confirm(
-      "Are you sure you want to delete this facilitator?"
-    );
+  // Handle deleting an advisor
+  const handleDelete = async (id: number) => {
+    const confirmed = window.confirm("Are you sure you want to delete this advisor?");
     if (confirmed) {
-      setFacilitators((prev) =>
-        prev.filter((facilitator) => facilitator.id !== id)
-      );
+      const { error } = await supabase.from("Student_Advisor").delete().eq("Advisor_ID", id);
+
+      if (error) {
+        console.error("Error deleting advisor:", error.message);
+      } else {
+        setAdvisors((prev) => prev.filter((advisor) => advisor.id !== id));
+      }
     }
   };
 
-  // Handle editing a facilitator
-  const handleEdit = (facilitator: Facilitator) => {
-    const confirmed = window.confirm(
-      "Are you sure you want to edit this facilitator?"
-    );
+  // Set up the advisor for editing
+  const handleEdit = (advisor: StudentAdvisor) => {
+    const confirmed = window.confirm("Are you sure you want to edit this advisor?");
     if (confirmed) {
       setIsEditing(true);
-      setEditId(facilitator.id);
-      setName(facilitator.name);
-      setCsaUsername(facilitator.csaUsername);
-      setCsaPassword(facilitator.csaPassword);
-      setContact(facilitator.contact);
-      setGender(facilitator.gender);
+      setEditId(advisor.id);
+      setName(advisor.name);
+      setDateApproved(advisor.dateApproved);
+      setContact(advisor.contact);
+      setSaUsername(advisor.saUsername);
+      setSaPassword(advisor.saPassword);
+      setRemarks(advisor.remarks);
+      setGender(advisor.gender);
     }
   };
 
   return (
     <div>
       <div className="h-screen w-screen fixed -z-10 opacity-85">
-        <img
-          loading="lazy"
-          className="object-cover w-full h-[350px]"
-          src="redbg.jpg"
-          alt="redbg"
-        />
+        <img loading="lazy" className="object-cover w-full h-[350px]" src="redbg.jpg" alt="redbg" />
       </div>
       <div className="w-full flex flex-col justify-center items-center h-full text-justify gap-[1.5rem]">
         <div className="flex flex-col py-[5rem] text-regular text-center">
-          <h1 className="text-border">Facilitators</h1>
+          <h1 className="text-border">Student Advisors</h1>
         </div>
       </div>
       <div className="bg-[#fff] border-t-2 border-[#e7e7e7] h-full sticky top-0">
         <section className="flex-col gap-[4rem] h-full">
           <div className="flex p-8">
-            {/* Left Side: Form to Add or Update Facilitator */}
+            {/* Left Side: Form to Add or Update Advisor */}
             <div className="w-1/2 pr-4">
               <div className="bg-white border border-gray-200 rounded shadow-md p-6">
                 <h2 className="text-2xl font-semibold mb-4">
@@ -112,80 +184,74 @@ export default function FacilitatorPage() {
                   onChange={(e) => setName(e.target.value)}
                   className="w-full p-2 mb-2 border border-gray-300 rounded"
                 />
+                <select
+                  value={gender}
+                  onChange={(e) => setGender(Number(e.target.value))}
+                  className="w-full p-2 mb-2 border border-gray-300 rounded"
+                >
+                  <option value={1}>Male</option>
+                  <option value={2}>Female</option>
+                </select>
+                <input
+                  type="date"
+                  placeholder="Date Approved"
+                  value={dateApproved}
+                  onChange={(e) => setDateApproved(e.target.value)}
+                  className="w-full p-2 mb-2 border border-gray-300 rounded"
+                />
                 <input
                   type="text"
-                  placeholder="CSA Username"
-                  value={csaUsername}
-                  onChange={(e) => setCsaUsername(e.target.value)}
+                  placeholder="SA Username"
+                  value={saUsername}
+                  onChange={(e) => setSaUsername(e.target.value)}
                   className="w-full p-2 mb-2 border border-gray-300 rounded"
                 />
                 <input
                   type="password"
-                  placeholder="CSA Password"
-                  value={csaPassword}
-                  onChange={(e) => setCsaPassword(e.target.value)}
+                  placeholder="SA Password"
+                  value={saPassword}
+                  onChange={(e) => setSaPassword(e.target.value)}
                   className="w-full p-2 mb-2 border border-gray-300 rounded"
                 />
                 <input
                   type="text"
                   placeholder="Contact"
-                  value={contact}
-                  onChange={(e) => setContact(e.target.value)}
+                  value={contact ?? ""}
+                  onChange={(e) => setContact(Number(e.target.value))}
                   className="w-full p-2 mb-2 border border-gray-300 rounded"
                 />
-                <select
-                  value={gender}
-                  onChange={(e) => setGender(e.target.value)}
+                <textarea
+                  placeholder="Remarks"
+                  value={remarks}
+                  onChange={(e) => setRemarks(e.target.value)}
                   className="w-full p-2 mb-4 border border-gray-300 rounded"
-                >
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                </select>
-                <Button
-                  variant="blue"
-                  onClick={handleSubmit}
-                  className="w-full"
-                >
+                />
+                <Button variant="blue" onClick={handleSubmit} className="w-full">
                   {isEditing ? "Update Student Advisor" : "Add Student Advisor"}
                 </Button>
               </div>
             </div>
 
-            {/* Right Side: List of Added Facilitators */}
+            {/* Right Side: List of Added Advisors */}
             <div className="w-1/2 pl-4">
-              <h3 className="text-xl font-semibold mb-4">
-                Added Student Advisors
-              </h3>
+              <h3 className="text-xl font-semibold mb-4">Added Student Advisors</h3>
               <div className="space-y-4">
-                {facilitators.length === 0 ? (
-                  <p className="text-gray-600">
-                    No student advisors added yet.
-                  </p>
+                {advisors.length === 0 ? (
+                  <p className="text-gray-600">No student advisors added yet.</p>
                 ) : (
-                  facilitators.map((facilitator) => (
-                    <div
-                      key={facilitator.id}
-                      className="p-4 bg-white border border-gray-200 rounded shadow-md"
-                    >
-                      <h4 className="text-lg font-semibold">
-                        {facilitator.name}
-                      </h4>
-                      <p>Username: {facilitator.csaUsername}</p>
-                      <p>Contact: {facilitator.contact}</p>
-                      <p>Gender: {facilitator.gender}</p>
+                  advisors.map((advisor) => (
+                    <div key={advisor.id} className="p-4 bg-white border border-gray-200 rounded shadow-md">
+                      <h4 className="text-lg font-semibold">{advisor.name}</h4>
+                      <p>Gender: {advisor.gender === 1 ? "Male" : "Female"}</p>
+                      <p>Date Approved: {advisor.dateApproved}</p>
+                      <p>Contact: {advisor.contact}</p>
+                      <p>SA Username: {advisor.saUsername}</p>
+                      <p>Remarks: {advisor.remarks}</p>
                       <div className="flex justify-end mt-4 space-x-2">
-                        <Button
-                          variant="blue"
-                          onClick={() => handleEdit(facilitator)}
-                          className="w-full"
-                        >
+                        <Button variant="blue" onClick={() => handleEdit(advisor)} className="w-full">
                           Edit
                         </Button>
-                        <Button
-                          variant="red"
-                          onClick={() => handleDelete(facilitator.id)}
-                          className="w-full"
-                        >
+                        <Button variant="red" onClick={() => handleDelete(advisor.id)} className="w-full">
                           Delete
                         </Button>
                       </div>
